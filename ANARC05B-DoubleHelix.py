@@ -11,13 +11,13 @@ while True:
     FIRST[0] = SECOND[0] = 0
     ITER_FIRST = ITER_SECOND = 1
 
-    def inc_first():
+    def inc_first() -> None:
         """Increments the sum of FIRST and also its iterator."""
         global ITER_FIRST
         FIRST[ITER_FIRST] += FIRST[ITER_FIRST - 1]
         ITER_FIRST += 1
 
-    def inc_second():
+    def inc_second() -> None:
         """Increments the sum of SECOND and also its iterator."""
         global ITER_SECOND
         SECOND[ITER_SECOND] += SECOND[ITER_SECOND - 1]
