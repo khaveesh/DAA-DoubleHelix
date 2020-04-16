@@ -12,8 +12,8 @@ class DoubleHelix:
             first: The first array
             second: The second array
         """
-        self.first = first
-        self.second = second
+        self.first = list(first)
+        self.second = list(second)
         self.iter_first: int = 1
         self.iter_second: int = 1
 
@@ -65,8 +65,8 @@ class DoubleHelix:
 
 if __name__ == "__main__":
     while True:
-        FIRST = list(map(int, input().split()))
+        FIRST = tuple(map(int, input().split()))
         if FIRST[0] == 0:
             break
-        SECOND = list(map(int, input().split()))
+        SECOND = tuple(map(int, input().split()))
         print(DoubleHelix(FIRST, SECOND).solve())

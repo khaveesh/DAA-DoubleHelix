@@ -14,13 +14,14 @@ def test_double_helix() -> None:
         ("4 -5 100 1000 1005", "3 -12 1000 1001", 2100),
     )
 
-    lists = []
-    for iter_list in in_lists:
-        temp = []
-        temp[0] = list(map(int, iter_list[0].split()))
-        temp[1] = list(map(int, iter_list[1].split()))
-        temp[2] = iter_list[2]
-        lists.append(temp)
+    lists = (
+        (
+            tuple(map(int, iter_list[0].split())),
+            tuple(map(int, iter_list[1].split())),
+            iter_list[2],
+        )
+        for iter_list in in_lists
+    )
 
     for element in lists:
-        assert db.DoubleHelix(element[0], element[1]) == element[2]
+        assert db.DoubleHelix(element[0], element[1]).solve() == element[2]
