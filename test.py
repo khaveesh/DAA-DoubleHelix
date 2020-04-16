@@ -21,7 +21,9 @@ class Test(unittest.TestCase):
 
     def test_dp(self):
         i = 0
+        print("\n", "-"*50, "\n")
         while i < len(self.ipdata):
+            print("Running Test Case {} for DP Algo".format(i//2))
             arr1 = list(map(int, self.ipdata[i].split()))
             arr2 = list(map(int, self.ipdata[i+1].split()))
             op = int(self.opdata[i//2])
@@ -30,9 +32,13 @@ class Test(unittest.TestCase):
             self.assertEqual(result, op)
             i+=2
 
+        print("Test Cases for DP passed\n")
+        print("-"*50, "\n")
+
     def test_greedy(self):
         i = 0
         while i < len(self.ipdata):
+            print("Running Test Case {} for DP Algo".format(i//2))
             arr1 = list(map(int, self.ipdata[i].split()))
             arr2 = list(map(int, self.ipdata[i+1].split()))
             op = int(self.opdata[i//2])
@@ -41,5 +47,7 @@ class Test(unittest.TestCase):
             self.assertEqual(result, op)
             i+=2
 
+        print("Test Cases for DP passed\n")
+
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(verbosity=0)
