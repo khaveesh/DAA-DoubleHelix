@@ -47,7 +47,7 @@ while True:
 
     for i in range(la1):
         # Checks for the intersection point
-        bs_val = binary_search(0, la2-1, arr2, arr1[i])
+        bs_val = binary_search(prev_max_ind2, la2-1, arr2, arr1[i])
 
         if(bs_val != -1):            
             if(flag==0):
