@@ -1,4 +1,4 @@
 .PHONY: run
 .DEFAULT: run
-run: ANARC05B-DoubleHelix.py in.txt
-	 python3 ANARC05B-DoubleHelix.py < in.txt
+run: anarc05b_double_helix.py in.txt
+	 python3 anarc05b_double_helix.py < in.txt
