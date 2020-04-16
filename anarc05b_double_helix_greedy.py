@@ -5,6 +5,7 @@
 '''
 
 class DHG:
+    
     def __init__(self, first, second):
         self.arr1 = first
         self.arr2 = second
