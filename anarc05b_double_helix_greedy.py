@@ -46,13 +46,13 @@ class DHG:
 
             if bs_int != -1:
                 if self.flag == 0:
-                """ If there was no intersection previously, 
-                    then select the maximum of pa1[index] and pa2[bs_int] """
+                    """ If there was no intersection previously, 
+                        then select the maximum of pa1[index] and pa2[bs_int] """
                     self.flag = 1
                     self.result += max(pa1[index], pa2[bs_int])
                 else:
-                """ Else, find the maximum of the difference between the 
-                    prefix sum at current intersection and previous intersection """
+                    """ Else, find the maximum of the difference between the 
+                        prefix sum at current intersection and previous intersection """
                     self.result += max(pa1[index] - pa1[prev_max_ind1],
                                        pa2[bs_int] - pa2[prev_max_ind2])
 
