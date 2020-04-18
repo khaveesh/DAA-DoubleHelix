@@ -1,8 +1,25 @@
-.PHONY: run
+.PHONY: all test run
 .DEFAULT: run
 
-run: anarc05b_double_helix.py test.py in.txt
-	 python3 anarc05b_double_helix.py < in.txt; echo " "
+all: test run
 
-	 python3 anarc05b_double_helix_greedy.py < in.txt; echo " "
-	 python3 test.py; echo " "
+test:
+	@echo "---------"
+	@echo "Testing |"
+	@echo "---------\n"
+	python3 test_double_helix.py
+
+run:
+	@echo "----------------"
+	@echo "Code Execution |"
+	@echo "----------------"
+	@echo "\n1) Dynamic Programming Solution"
+	python3 anarc05b_double_helix.py < in.txt
+	@echo "\n2) Greedy Algorithm Solution"
+	python3 anarc05b_double_helix_greedy.py < in.txt
+
+help:
+	@echo "Use the following tags after make command"
+	@echo "all - runs both test and code"
+	@echo "test - run tests"
+	@echo "run - runs the code"
