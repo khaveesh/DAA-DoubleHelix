@@ -1,32 +1,27 @@
-"""Algorithm : Take the input arrays, make a prefix array and
-               then binary search for the intersection points
-               and then greedily select the maximum of the intersection
-               from respective prefix arrays
-"""
-
-
 class DHG:
+
     def __init__(self, first, second):
         self.arr1 = list(first)
         self.arr2 = list(second)
         self.flag = 0  # Checks if the intersection has occured or not
         self.result = 0  # Answer
 
-    # Binary Search
+    # Binary Search which returns the index of the matched value
     @staticmethod
-    def binary_search(start, end, lst, val):
+    def _binary_search(start, end, lst, value):
         if end < start:
             return -1
         else:
             mid = start + (end - start) // 2
 
-            if lst[mid] == val:
+            if lst[mid] == value:
                 return mid
-            elif lst[mid] < val:
-                return DHG.binary_search(mid + 1, end, lst, val)
+            elif lst[mid] < value:
+                return DHG._binary_search(mid + 1, end, lst, value)
             else:
-                return DHG.binary_search(start, mid - 1, lst, val)
+                return DHG._binary_search(start, mid - 1, lst, value)
 
+    # Returns the maximum sum possible
     def solve(self):
         arr1 = self.arr1[1:]
         arr2 = self.arr2[1:]
@@ -36,34 +31,39 @@ class DHG:
         # Prefix Array 1
         pa1 = []
         pa1.append(arr1[0])
-        for i in range(1, self.arr1[0]):
-            pa1.append(pa1[i - 1] + arr1[i])
+        for index in range(1, self.arr1[0]):
+            pa1.append(pa1[index - 1] + arr1[index])
 
         # Prefix Array 2
         pa2 = []
         pa2.append(arr2[0])
-        for i in range(1, self.arr2[0]):
-            pa2.append(pa2[i - 1] + arr2[i])
+        for index in range(1, self.arr2[0]):
+            pa2.append(pa2[index - 1] + arr2[index])
+    
+        for index in range(self.arr1[0]):
+            # Stores the index of arr2 where intersection has occured
+            bs_int = DHG._binary_search(prev_max_ind2, self.arr2[0] - 1, arr2, arr1[index])
 
-        for i in range(self.arr1[0]):
-            # Checks for the intersection point
-            bs_val = DHG.binary_search(prev_max_ind2, self.arr2[0] - 1, arr2, arr1[i])
-
-            if bs_val != -1:
+            if bs_int != -1:
                 if self.flag == 0:
+                """ If there was no intersection previously, 
+                    then select the maximum of pa1[index] and pa2[bs_int] """
                     self.flag = 1
-                    self.result += max(pa1[i], pa2[bs_val])
+                    self.result += max(pa1[index], pa2[bs_int])
                 else:
-                    self.result += max(
-                        pa1[i] - pa1[prev_max_ind1], pa2[bs_val] - pa2[prev_max_ind2]
-                    )
+                """ Else, find the maximum of the difference between the 
+                    prefix sum at current intersection and previous intersection """
+                    self.result += max(pa1[index] - pa1[prev_max_ind1],
+                                       pa2[bs_int] - pa2[prev_max_ind2])
 
-                prev_max_ind1 = i
-                prev_max_ind2 = bs_val
-
+                prev_max_ind1 = index
+                prev_max_ind2 = bs_int
+        
+        # If there was no intersection, find the maximum of prefix array of final indexes
         if self.flag == 0:
             self.result += max(pa1[self.arr1[0] - 1], pa2[self.arr2[0] - 1])
-
+                
+        # Else, find the maximum of the difference of prefix sum at final index and their last intersection 
         else:
             self.result += max(
                 pa1[self.arr1[0] - 1] - pa1[prev_max_ind1],
