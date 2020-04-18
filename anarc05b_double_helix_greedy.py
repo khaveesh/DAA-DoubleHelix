@@ -7,8 +7,8 @@
 
 class DHG:
     def __init__(self, first, second):
-        self.arr1 = first
-        self.arr2 = second
+        self.arr1 = list(first)
+        self.arr2 = list(second)
         self.flag = 0  # Checks if the intersection has occured or not
         self.result = 0  # Answer
 

@@ -65,8 +65,8 @@ class DoubleHelix:
 
 if __name__ == "__main__":
     while True:
-        FIRST = tuple(map(int, input().split()))
-        if FIRST[0] == 0:
+        FIRST = input()
+        if FIRST[0] == "0":
             break
-        SECOND = tuple(map(int, input().split()))
-        print(DoubleHelix(FIRST, SECOND).solve())
+        SECOND = map(int, input().split())
+        print(DoubleHelix(map(int, FIRST.split()), SECOND).solve())
