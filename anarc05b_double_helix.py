@@ -1,6 +1,5 @@
 # coding=utf-8
 """Solves the ANARC05B problem in SPOJ."""
-import cProfile
 
 
 class DoubleHelix:
@@ -72,4 +71,4 @@ if __name__ == "__main__":
         # Convert string input to list of ints
         SECOND = map(int, input().split())
         # Create an instance of the class and call solve function
-        cProfile.run("print(DoubleHelix(map(int, FIRST.split()), SECOND).solve())")
+        print(DoubleHelix(map(int, FIRST.split()), SECOND).solve())
