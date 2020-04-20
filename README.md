@@ -35,6 +35,10 @@ We can traverse the sequence in the following manner
 
 ### Proof of Correctness
 
+**Dynamic Approach**
+
+**Greedy Approach**
+
 Let's assume *m* be the size of list 1, *a*<sub>i</sub> be an element of sequence 1 and *pa*<sub>i</sub> be the difference between prefix sum at index *i* and prefix sum at previous point of intersection(which is initially 0), *n* be the length of list 2 , *b*<sub>i</sub> be an element of sequence 2 and *pb*<sub>i</sub> be the difference between prefix sum at index *i* and prefix sum at previous point of intersection(which is initially 0)
 
 We have to prove that by using the following greedy algoritm we get the maximum sum.
@@ -67,5 +71,9 @@ Hence by induction, we have succesfully proved that the path taken by this metho
 
 
 ### Complexity 
+
+**Dynamic Approach**
+
+**Greedy Approach**
 
 `O(mlog(n))` where `m` is the length of first sequence and `n` is the length of second sequence.	
