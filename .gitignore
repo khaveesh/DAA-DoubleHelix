@@ -374,5 +374,6 @@ dmypy.json
 *tmpfile
 *tmpfiles
 *lol
+*dat
 
 # End of https://www.gitignore.io/api/git,test,linux,macos,python
