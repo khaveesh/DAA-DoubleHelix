@@ -42,7 +42,7 @@ class DoubleHelix:
             self._inc_first()
         elif self.first[self.iter_first] > self.second[self.iter_second]:
             self._inc_second()
-        else:
+        else:  # Intersection Point
             self._inc_first()
             self._inc_second()
             self._assign_max()
@@ -68,5 +68,7 @@ if __name__ == "__main__":
         FIRST = input()
         if FIRST[0] == "0":
             break
+        # Convert string input to list of ints
         SECOND = map(int, input().split())
+        # Create an instance of the class and call solve function
         print(DoubleHelix(map(int, FIRST.split()), SECOND).solve())
