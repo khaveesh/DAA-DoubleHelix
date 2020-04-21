@@ -1,5 +1,71 @@
 # Report - ANARC05B - The Double HeLiX
 
+---
+
+## Table of contents
+
+- [Installation and Setup](#installation-and-setup)
+    - [Installation](#installation)
+    - [Run](#run)
+- [Problem Statement](#problem-statement)
+    - [Input](#input)
+    - [Output](#output)
+    - [Conditions](#conditions)
+- [Algorithm](#algorithm)
+    - [Dynamic Approach](#dynamic-approach)
+    - [Greedy Approach](#greedy-approach)
+- [Proof of Correctness](#proof-of-correctness)
+    - [Dynamic Approach](#dynamic-approach-1)
+    - [Greedy Approach](#greedy-approach-1)
+- [Complexity](#complexity)
+    - [Dynamic Approach](#dynamic-approach-2)
+    - [Greedy Approach](#greedy-approach-2)
+
+---
+
+## Installation and Setup
+
+### Installation
+
+> git clone git@github.com:khaveesh/DAA-DoubleHelix.git
+
+### Run
+
+Change your current working directory by going into `DAA-DoubleHelix`
+
+> cd DAA-DoubleHelix
+
+To run both the algorithms and all the tests
+
+> make
+
+To run only algorithms 
+
+> make run
+
+To run the tests
+
+> make test
+
+---
+
+## Problem Statement
+
+[Source](https://www.spoj.com/problems/ANARC05B/)
+
+Two ﬁnite, strictly increasing, integer sequences are given. Any common integer between the two sequences constitute an intersection point. Take for example the following two sequences where intersection points are printed in bold:
+
+First= 3 5 **7** 9 20 **25** 30 40 **55** 56 **57** 60 62
+
+Second= 1 4 **7** 11 14 **25** 44 47 **55** **57** 100
+
+You can *walk* over these two sequences in the following way:
+
+You may start at the beginning of any of the two sequences. Now start moving forward.
+At each intersection point, you have the choice of either continuing with the same sequence you’re currently on, or switching to the other sequence.
+
+The objective is ﬁnding a path that produces the maximum sum of data you walked over. In the above example, the largest possible sum is 450, which is the result of adding 3, 5, 7, 9, 20, 25, 44, 47, 55, 56, 57, 60, and 62
+
 ### Input 
 
 We are given two lists of the format
@@ -12,6 +78,8 @@ where n is the length of the sequence, v<sub>i</sub> is the i<sup>th</sup> eleme
 
 > -10000 < v<sub>i</sub> < 10000
 
+`0` indicates the end of input
+
 ### Output 
 
 Largest possible sum that can be produced by the path by traversing according to the given conditions
@@ -22,22 +90,26 @@ We can traverse the sequence in the following manner
 - We may start at the beginning of any of the two sequences.
 - At each intersection point, we have the choice of either continuing with the same sequence, or switching to the other sequence.
 
-### Algorithm
+---
 
-**Dynamic Approach**
+## Algorithm
 
-**Greedy Approach**
+### Dynamic Approach
+
+### Greedy Approach
 
 - **Step 1**: We generate the *prefix sum lists* of the given two sequences.
 - **Step 2**: We find the point of intersection of both lists. To do this we iterate through every element in a sequence and then perform a *binary search* for the intersection on the second sequence.
 - **Step 3**: On finding an intersection we find the difference between the prefix sum at the current intersection and prefix sum at previous intersection for the respective sequences and then greedily select the maximum among both and add it to a *result* variable.
 - **Step 4**: Since we have found the maximum till the final intersection, we now need to find the difference between the final element of prefix sum list and the final intersection for the respective sequences and then greedily select the maximum and add it to the *result* variable
 
-### Proof of Correctness
+---
 
-**Dynamic Approach**
+## Proof of Correctness
 
-**Greedy Approach**
+### Dynamic Approach
+
+### Greedy Approach
 
 Let's assume *m* be the size of list 1, *a*<sub>i</sub> be an element of sequence 1 and *pa*<sub>i</sub> be the difference between prefix sum at index *i* and prefix sum at previous point of intersection(which is initially 0), *n* be the length of list 2 , *b*<sub>i</sub> be an element of sequence 2 and *pb*<sub>i</sub> be the difference between prefix sum at index *i* and prefix sum at previous point of intersection(which is initially 0)
 
@@ -69,11 +141,21 @@ Without loss of generality, we can also prove for induction over j.
 
 Hence by induction, we have succesfully proved that the path taken by this method gives the maximum sum.
 
+---
 
-### Complexity 
+## Complexity 
 
-**Dynamic Approach**
+### Dynamic Approach
 
-**Greedy Approach**
+### Greedy Approach
 
 `O(mlog(n))` where `m` is the length of first sequence and `n` is the length of second sequence.	
+
+---
+
+## Other Details
+
+### Side Effects in the code
+
+
+---
