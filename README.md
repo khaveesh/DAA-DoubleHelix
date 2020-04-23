@@ -14,13 +14,13 @@
     - [Output](#output)
     - [Conditions](#conditions)
   - [Algorithm](#algorithm)
-    - [Dynamic Approach](#dynamic-approach)
+    - [Simple Approach](#simple-approach)
     - [Greedy Approach](#greedy-approach)
   - [Proof of Correctness](#proof-of-correctness)
-    - [Dynamic Approach](#dynamic-approach-1)
+    - [Simple Approach](#simple-approach-1)
     - [Greedy Approach](#greedy-approach-1)
   - [Complexity](#complexity)
-    - [Dynamic Approach](#dynamic-approach-2)
+    - [Simple Approach](#simple-approach-2)
     - [Greedy Approach](#greedy-approach-2)
   - [Other Details](#other-details)
     - [Side Effects in the code](#side-effects-in-the-code)
@@ -99,7 +99,7 @@ We can traverse the sequence in the following manner:
 
 ## Algorithm
 
-### Dynamic Approach
+### Simple Approach
 
 ### Greedy Approach
 
@@ -112,7 +112,7 @@ We can traverse the sequence in the following manner:
 
 ## Proof of Correctness
 
-### Dynamic Approach
+### Simple Approach
 
 ### Greedy Approach
 
@@ -150,11 +150,12 @@ Hence by induction, we have succesfully proved that the path taken by this metho
 
 ## Complexity
 
-### Dynamic Approach
+### Simple Approach
+`O(m+n)` where `m` is the length of first sequence and `n` is the length of second sequence.
 
 ### Greedy Approach
 
-`O(mlog(n))` where `m` is the length of first sequence and `n` is the length of second sequence.
+`O(m*log(n))` where `m` is the length of first sequence and `n` is the length of second sequence.
 
 ---
 
