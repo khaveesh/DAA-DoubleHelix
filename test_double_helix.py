@@ -15,7 +15,7 @@ class Test(unittest.TestCase):
             # Read all the lines from file, removing empty lines and \n's
             raw_inp = filter(None, file_desc.read().splitlines())
             # Split string of integers into list of ints
-            inp = [tuple(map(int, string.split())) for string in raw_inp]
+            inp = [list(map(int, string.split())) for string in raw_inp]
             # Encapsulate the first, second and soln for each testcase in a separate tuple
             self.testcases = [
                 (iter_list[0], iter_list[1], iter_list[2][0])

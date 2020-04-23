@@ -79,6 +79,7 @@ We are given two lists of the format
 where n is the length of the sequence, v<sub>i</sub> is the i<sup>th</sup> element of the sequence.
 
 > n <= 10000
+>
 > -10000 < v<sub>i</sub> < 10000
 
 `0` indicates the end of input
