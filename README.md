@@ -101,6 +101,12 @@ We can traverse the sequence in the following manner:
 
 ### Simple Approach
 
+- **Step 1**: Set sum1 & sum2 to be 0.
+- **Step 2**: Compare the values at the first index of both lists. Whichever is lesser, add its value to the appropriate sum variable and increment its index. Repeat this step until both the values are equal.
+- **Step 3**: When they are equal, then find the maximum among sum1 & sum2 and assign that value to both of them. Then increment the index of both the lists.
+- **Step 4**: When the index of either one of the list is exhausted, add the remaining values in the other list to its appropriate sum variable.
+- **Step 5**: Return the maximum of sum1 & sum2
+
 ### Greedy Approach
 
 - **Step 1**: We generate the *prefix sum lists* of the given two sequences.
@@ -151,7 +157,9 @@ Hence by induction, we have succesfully proved that the path taken by this metho
 ## Complexity
 
 ### Simple Approach
-`O(m+n)` where `m` is the length of first sequence and `n` is the length of second sequence.
+
+- **Time Complexity**: `O(m+n)` where `m` is the length of first sequence and `n` is the length of second sequence.
+- **Space Complexity**: `O(1)`
 
 ### Greedy Approach
 
@@ -163,4 +171,4 @@ Hence by induction, we have succesfully proved that the path taken by this metho
 
 ### Side Effects in the code
 
----
+There are no side-effects in this code.
