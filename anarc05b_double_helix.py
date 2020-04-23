@@ -3,6 +3,7 @@
 
 import cProfile
 
+
 class DoubleHelix:
     """Class to solve the double helix problem."""
 

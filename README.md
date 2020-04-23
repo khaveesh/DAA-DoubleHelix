@@ -4,22 +4,26 @@
 
 ## Table of contents
 
-- [Installation and Setup](#installation-and-setup)
+- [Report - ANARC05B - The Double HeLiX](#report---anarc05b---the-double-helix)
+  - [Table of contents](#table-of-contents)
+  - [Installation and Setup](#installation-and-setup)
     - [Installation](#installation)
     - [Run](#run)
-- [Problem Statement](#problem-statement)
+  - [Problem Statement](#problem-statement)
     - [Input](#input)
     - [Output](#output)
     - [Conditions](#conditions)
-- [Algorithm](#algorithm)
+  - [Algorithm](#algorithm)
     - [Dynamic Approach](#dynamic-approach)
     - [Greedy Approach](#greedy-approach)
-- [Proof of Correctness](#proof-of-correctness)
+  - [Proof of Correctness](#proof-of-correctness)
     - [Dynamic Approach](#dynamic-approach-1)
     - [Greedy Approach](#greedy-approach-1)
-- [Complexity](#complexity)
+  - [Complexity](#complexity)
     - [Dynamic Approach](#dynamic-approach-2)
     - [Greedy Approach](#greedy-approach-2)
+  - [Other Details](#other-details)
+    - [Side Effects in the code](#side-effects-in-the-code)
 
 ---
 
@@ -39,7 +43,7 @@ To run both the algorithms and all the tests
 
 > make
 
-To run only algorithms 
+To run only algorithms:
 
 > make run
 
@@ -66,27 +70,27 @@ At each intersection point, you have the choice of either continuing with the sa
 
 The objective is ﬁnding a path that produces the maximum sum of data you walked over. In the above example, the largest possible sum is 450, which is the result of adding 3, 5, 7, 9, 20, 25, 44, 47, 55, 56, 57, 60, and 62
 
-### Input 
+### Input
 
 We are given two lists of the format
 
 > n v<sub>1</sub> v<sub>2</sub> ... v<sub>n</sub>
 
-where n is the length of the sequence, v<sub>i</sub> is the i<sup>th</sup> element of the sequence. 
+where n is the length of the sequence, v<sub>i</sub> is the i<sup>th</sup> element of the sequence.
 
 > n <= 10000
-
 > -10000 < v<sub>i</sub> < 10000
 
 `0` indicates the end of input
 
-### Output 
+### Output
 
 Largest possible sum that can be produced by the path by traversing according to the given conditions
 
-### Conditions 
+### Conditions
 
-We can traverse the sequence in the following manner 
+We can traverse the sequence in the following manner:
+
 - We may start at the beginning of any of the two sequences.
 - At each intersection point, we have the choice of either continuing with the same sequence, or switching to the other sequence.
 
@@ -115,11 +119,11 @@ Let's assume *m* be the size of list 1, *a*<sub>i</sub> be an element of sequenc
 
 We have to prove that by using the following greedy algoritm we get the maximum sum.
 
-**Base Case:** We need to show that we get a maximum sum when we have two sequences of length 1. 
-            
+**Base Case:** We need to show that we get a maximum sum when we have two sequences of length 1.
+
 Since the length is 1, there can be two cases, either a<sub>1</sub> and b<sub>1</sub> same or they aren't same. If a<sub>1</sub> and b<sub>1</sub> are same then the *binary search* determines that there is a point of intersection and then adds as `max(`a<sub>1</sub>, b<sub>1</sub>`)` which are the same at index 1 to the *result* variable. Then according to *step 4*, the difference generated will be 0 for both the sequences. Hence there won't be any change in result. Therefore we get the maximum in this case. The second case when both are not equal, then we directly go to *step 4* and accordingly maximum is choosen from both the sequences from `max(`pa<sub>1</sub>, pb<sub>1</sub>`)` which is equivalent to `max(`a<sub>1</sub>, b<sub>1</sub>`)`. Hence the given proposition is true for n = 1 as we get the maximum sum from this single node path.
 
-**Induction Step over i:** Assuming that our proposition holds true for sequences of length i, 1 respectively, we need to show that it is also true for i+1, 1. 
+**Induction Step over i:** Assuming that our proposition holds true for sequences of length i, 1 respectively, we need to show that it is also true for i+1, 1.
 
 This means that till `i` there can be two cases, either intersection occurs or intersection doesn't occur.
 
@@ -129,33 +133,32 @@ We know that we have maximum sum till the element at index `i`(assumption). Let 
 
 - Case 2: If intersection has occured at `i` or before `i`.
 
-Since the given sequence is strictly increasing, and intersection has already occured at index `i`, it means that intersection will never occur at index `i+1`. Which implies that the maximum would be the prefix sum at index `i+1`. We have to prove that our algorithm gives that value. 
+Since the given sequence is strictly increasing, and intersection has already occured at index `i`, it means that intersection will never occur at index `i+1`. Which implies that the maximum would be the prefix sum at index `i+1`. We have to prove that our algorithm gives that value.
 
 At intersection index `k` our algorithm chooses `max(`pa<sub>k</sub>, 1`)` in `step 3`. Hence, the answer generated will be `pa`<sub>k</sub>. Now after completing to step 4 we will have the result as Prefix Sum till `i`, since size of i > 1 which obviously is the maximum. Similar is the case when an additional element is added. It will be added in step 4. Since Prefix Sum till `i` + a<sub>i+1</sub> is Prefix Sum till `i+1`. Hence the answer is Prefix Sum till `i+1`<sup>th</sup> element, which is greater than b<sub>1</sub> as intersection already occurred.
 
 Basic logic behind reasoning in above case is a+b > a, given b > 0.
 
-Hence proved. 
+Hence proved.
 
-Without loss of generality, we can also prove for induction over j. 
+Without loss of generality, we can also prove for induction over j.
 
 Hence by induction, we have succesfully proved that the path taken by this method gives the maximum sum.
 
 ---
 
-## Complexity 
+## Complexity
 
 ### Dynamic Approach
 
 ### Greedy Approach
 
-`O(mlog(n))` where `m` is the length of first sequence and `n` is the length of second sequence.	
+`O(mlog(n))` where `m` is the length of first sequence and `n` is the length of second sequence.
 
 ---
 
 ## Other Details
 
 ### Side Effects in the code
-
 
 ---
