@@ -1,0 +1,3 @@
+[Length of first list] [First List elements]
+[Length of second list] [Second List elements]
+[Correct Solution to the above input]

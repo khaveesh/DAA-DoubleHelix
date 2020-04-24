@@ -2,7 +2,7 @@
 """Tests the solution."""
 import unittest
 
-import anarc05b_double_helix as dp
+import anarc05b_double_helix as dbl
 import anarc05b_double_helix_greedy as grdy
 
 
@@ -27,7 +27,7 @@ class Test(unittest.TestCase):
         for testcase in self.testcases:
             with self.subTest(testcase):
                 self.assertEqual(
-                    dp.DoubleHelix(testcase[0], testcase[1]).solve(), testcase[2],
+                    dbl.DoubleHelix(testcase[0], testcase[1]).solve(), testcase[2],
                 )
 
     def test_double_helix_greedy(self) -> None:

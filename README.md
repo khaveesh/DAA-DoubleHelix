@@ -5,27 +5,29 @@
 ## Table of contents
 
 - [Report - ANARC05B - The Double HeLiX](#report---anarc05b---the-double-helix)
-    - [Table of contents](#table-of-contents)
-    - [Run](#run)
-    - [Problem Statement](#problem-statement)
-        - [Input](#input)
-        - [Output](#output)
-        - [Conditions](#conditions)
-    - [Algorithm](#algorithm)
-        - [Simple Approach](#simple-approach)
-        - [Greedy Approach](#greedy-approach)
-    - [Pseudo Code](#pseudocode)
-        - [Simple Approach](#simple-approach-1)
-        - [Greedy Approach](#greedy-approach-1)
-    - [Proof of Correctness](#proof-of-correctness)
-        - [Simple Approach](#simple-approach-2)
-        - [Greedy Approach](#greedy-approach-2)
-    - [Complexity](#complexity)
-        - [Simple Approach](#simple-approach-3)
-        - [Greedy Approach](#greedy-approach-3)
-    - [Other Details](#other-details)
-        - [Side Effects in the code](#side-effects-in-the-code)
-    - [Contributions and Bibliography](#contributions-and-bibliography)
+  - [Table of contents](#table-of-contents)
+  - [Run](#run)
+  - [Problem Statement](#problem-statement)
+    - [Input](#input)
+    - [Output](#output)
+    - [Conditions](#conditions)
+  - [Algorithm](#algorithm)
+    - [Simple Approach](#simple-approach)
+    - [Greedy Approach](#greedy-approach)
+  - [Pseudocode](#pseudocode)
+    - [Simple Approach](#simple-approach-1)
+    - [Greedy Approach](#greedy-approach-1)
+  - [Proof of Correctness](#proof-of-correctness)
+    - [Simple Approach](#simple-approach-2)
+    - [Greedy Approach](#greedy-approach-2)
+  - [Complexity](#complexity)
+    - [Simple Approach](#simple-approach-3)
+    - [Greedy Approach](#greedy-approach-3)
+  - [Side Effects](#side-effects)
+  - [Bibliography](#bibliography)
+  - [Contributions](#contributions)
+    - [Khaveesh Nagappan IMT2018036](#khaveesh-nagappan-imt2018036)
+    - [Sai Rithwik IMT2018064](#sai-rithwik-imt2018064)
 
 ---
 
@@ -156,13 +158,13 @@ DoubleHelix(A,B,m,n)
   
   for i in range(A)
     bs = binary_search(A[i]
-    
-    if(bs != -1):      
+
+    if(bs != -1):
       if (flag == 0):
         flag = 1
         result += max(prefixA[i], prefixB[bs])
       else:
-        result += max(prefixA[i]-prefixA[prevIndA]     
+        result += max(prefixA[i]-prefixA[prevIndA]
                      ,prefixB[bs]-prefixB[prevIndb])
 
       prevIndA = i
@@ -171,8 +173,7 @@ DoubleHelix(A,B,m,n)
   if (flag = 0):
     result += max(pa1[-1], pa2[-1])
   else:
-    result += max(prefixA[-1]-prefixA[prevIndA]     
-                 ,prefixB[-1]-prefixB[prevIndb])
+    result += max(prefixA[-1]-prefixA[prevIndA]     ,prefixB[-1]-prefixB[prevIndb])
 ```
   
 ---
@@ -244,14 +245,29 @@ Hence by induction, we have succesfully proved that the path taken by this metho
 
 ---
 
-## Other Details
+## Data Structures
 
-### Side Effects in the code
+We have used Python lists & tuples only.
+
+## Side Effects
 
 There are no side-effects in this code.
 
-## Contributions and Bibliography
+## Bibliography
 
 - [Multivariable Mathematical Induction](https://www.mathblog.dk/proof-method-multidimensional-induction/)
+- **Introduction to Algorithms** by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein
 
+## Contributions
 
+### Khaveesh Nagappan IMT2018036
+
+- anarc05b_double_helix.py
+- test_double_helix.py
+- in.txt
+
+### Sai Rithwik IMT2018064
+
+- anarc05b_double_helix_greedy.py
+- Makefile
+- correct_tests.txt

@@ -7,17 +7,17 @@ class DHG:
 
     # Binary Search which returns the index of the matched value
     @staticmethod
-    def _binary_search(start, end, lst, value): 
-        while start <= end :
+    def _binary_search(start, end, lst, value):
+        while start <= end:
             mid = start + (end - start) // 2
 
-            if lst[mid] == value: 
-                return mid 
-            elif lst[mid] < value: 
+            if lst[mid] == value:
+                return mid
+            elif lst[mid] < value:
                 start = mid + 1
-            else: 
-                end = mid - 1                
-        return -1   
+            else:
+                end = mid - 1
+        return -1
 
     # Returns the maximum sum possible
     def solve(self):
