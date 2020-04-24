@@ -1,5 +1,7 @@
 # Report - ANARC05B - The Double HeLiX
 
+By Khaveesh (IMT2018036) & Sai Rithwik (IMT2018064)
+
 ---
 
 ## Table of contents
@@ -11,6 +13,7 @@
     - [Input](#input)
     - [Output](#output)
     - [Conditions](#conditions)
+  - [SPOJ Submission Status](#spoj-submission-status)
   - [Algorithm](#algorithm)
     - [Simple Approach](#simple-approach)
     - [Greedy Approach](#greedy-approach)
@@ -23,6 +26,7 @@
   - [Complexity](#complexity)
     - [Simple Approach](#simple-approach-3)
     - [Greedy Approach](#greedy-approach-3)
+  - [Data Structures](#data-structures)
   - [Side Effects](#side-effects)
   - [Bibliography](#bibliography)
   - [Contributions](#contributions)
@@ -84,7 +88,7 @@ where n is the length of the sequence, v<sub>i</sub> is the i<sup>th</sup> eleme
 
 ### Output
 
-Largest possible sum that can be produced by the path by traversing according to the given conditions
+Largest possible sum that can be produced by traversing the path according to the given conditions
 
 ### Conditions
 
@@ -98,7 +102,7 @@ We can traverse the sequence in the following manner:
 ## SPOJ Submission Status
 
 - Simple Approach
-  ![Simple](../master/Assets/Double%20Helix%Simple.png)
+  ![Simple](../master/Assets/Double%20Helix%20Simple.png)
 - Greedy Approach
   ![Greedy](../master/Assets/Double%20Helix%20Greedy.png)
 
@@ -112,7 +116,7 @@ We can traverse the sequence in the following manner:
 
 - **Step 2**: Compare the values at the first index of both lists. Whichever is lesser, add its value to the appropriate sum variable and increment its index. Repeat this step until both the values are equal.
 
-- **Step 3**: When they are equal, then find the maximum among sum1 & sum2 and assign that value to both of them. Then increment the index of both the lists.
+- **Step 3**: When they are equal, add both the values to their appropriate sum variable. Then find the maximum among sum1 & sum2 and assign that value to both of them. Then increment the index of both the lists.
 
 - **Step 4**: When the index of either one of the list is exhausted, add the remaining values in the other list to its appropriate sum variable.
 
@@ -138,23 +142,23 @@ We can traverse the sequence in the following manner:
 DoubleHelix(A,B,m,n)
   sum1 = 0
   sum2 = 0
-  i=0
-  j=0
-  while i<m and j<n
-    if A[i]<B[j]
-      sum1+=A[i++]
-    else if A[i]>B[j]
-      sum2+=B[j++]
+  i = 0
+  j = 0
+  while i < m and j < n
+    if A[i] < B[j]
+      sum1 += A[i++]
+    else if A[i] > B[j]
+      sum2 += B[j++]
     else
-      sum1+=A[i]
-      sum2+=B[j]
-      sum1=sum2=max(sum1,sum2)
-      i++,j++
-  while i<m
-    sum1+=A[i++]
-  while j<n
-    sum2+B[j++]
-  return max(sum1,sum2)
+      sum1 += A[i]
+      sum2 += B[j]
+      sum1 = sum2 = max(sum1, sum2)
+      i++, j++
+  while i < m
+    sum1 += A[i++]
+  while j < n
+    sum2 += B[j++]
+  return max(sum1, sum2)
 ```
 
 ### Greedy Approach
@@ -184,14 +188,14 @@ DoubleHelix(A,B,m,n)
   else:
     result += max(prefixA[-1]-prefixA[prevIndA]     ,prefixB[-1]-prefixB[prevIndb])
 ```
-  
+
 ---
 
 ## Proof of Correctness
 
 ### Simple Approach
 
-Let's assume _m_ be the length of list 1, _a_<sub>i</sub> be an element of sequence 1, _n_ be the length of list 2 , _b_<sub>i</sub> be an element of sequence 2.
+Let's assume _m_ be the length of list 1, _a_<sub>i</sub> be an element of list 1, _n_ be the length of list 2, _b_<sub>i</sub> be an element of list 2.
 
 We have to prove that by using the following algoritm we get the maximum sum.
 
@@ -243,7 +247,7 @@ Hence by induction, we have succesfully proved that the path taken by this metho
 
 ### Simple Approach
 
-- **Time Complexity**: `O(m+n)` where `m` is the length of first sequence and `n` is the length of second sequence. This is because the worst case for this algorithm occurs when there are no intersection points and thus each element in both lists will be added to the sum variables.
+- **Time Complexity**: `O(m+n)` where `m` is the length of first sequence and `n` is the length of second sequence. This is because the worst case for this algorithm occurs when there are no intersection points and thus each element in both lists will be added to the sum variables once leading to the above time complexity.
 - **Space Complexity**: `O(1)`
 
 ### Greedy Approach
@@ -260,7 +264,7 @@ We have used Python lists & tuples only.
 
 ## Side Effects
 
-There are no side-effects in this code.
+There are no side-effects during execution of this code.
 
 ## Bibliography
 
@@ -275,7 +279,6 @@ There are no side-effects in this code.
 - test_double_helix.py
 - in.txt
 - TestCases Format.txt
-- SPOJ Success Screenshot
 
 ### Sai Rithwik IMT2018064
 
