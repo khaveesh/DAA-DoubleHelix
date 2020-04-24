@@ -1,6 +1,3 @@
-import cProfile
-
-
 class DHG:
     def __init__(self, first, second):
         self.arr1 = list(first)
@@ -10,18 +7,17 @@ class DHG:
 
     # Binary Search which returns the index of the matched value
     @staticmethod
-    def _binary_search(start, end, lst, value):
-        if end < start:
-            return -1
-        else:
+    def _binary_search(start, end, lst, value): 
+        while start <= end :
             mid = start + (end - start) // 2
 
-            if lst[mid] == value:
-                return mid
-            elif lst[mid] < value:
-                return DHG._binary_search(mid + 1, end, lst, value)
-            else:
-                return DHG._binary_search(start, mid - 1, lst, value)
+            if lst[mid] == value: 
+                return mid 
+            elif lst[mid] < value: 
+                start = mid + 1
+            else: 
+                end = mid - 1                
+        return -1   
 
     # Returns the maximum sum possible
     def solve(self):
@@ -84,4 +80,4 @@ if __name__ == "__main__":
         if a1[0] == 0:
             break
         a2 = list(map(int, input().split()))
-        cProfile.run("print(DHG(a1, a2).solve())")
+        print(DHG(a1, a2).solve())

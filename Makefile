@@ -7,16 +7,16 @@ test:
 	@echo "---------"
 	@echo "Testing |"
 	@echo "---------\n"
-	python3 ./test/test_double_helix.py
+	python3 test_double_helix.py
 
 run:
 	@echo "----------------"
 	@echo "Code Execution |"
 	@echo "----------------"
 	@echo "\n1) Dynamic Programming Solution"
-	python3 ./code/anarc05b_double_helix.py < ./code/in.txt
+	python3 anarc05b_double_helix.py < ./test/in.txt
 	@echo "\n2) Greedy Algorithm Solution"
-	python3 ./code/anarc05b_double_helix_greedy.py < ./code/in.txt
+	python3 anarc05b_double_helix_greedy.py < ./test/in.txt
 
 help:
 	@echo "Use the following tags after make command"

@@ -2,8 +2,8 @@
 """Tests the solution."""
 import unittest
 
-from code import anarc05b_double_helix as dp
-from code import anarc05b_double_helix_greedy as grdy
+import anarc05b_double_helix as dp
+import anarc05b_double_helix_greedy as grdy
 
 
 class Test(unittest.TestCase):
@@ -11,7 +11,7 @@ class Test(unittest.TestCase):
 
     def setUp(self) -> None:
         """Testcase class is setup to run tests."""
-        with open("correct_tests.txt") as file_desc:
+        with open("./test/correct_tests.txt") as file_desc:
             # Read all the lines from file, removing empty lines and \n's
             raw_inp = filter(None, file_desc.read().splitlines())
             # Split string of integers into list of ints
