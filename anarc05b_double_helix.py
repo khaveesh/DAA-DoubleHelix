@@ -1,5 +1,5 @@
 # coding=utf-8
-"""Solves the ANARC05B problem in SPOJ."""
+"""Author - Khaveesh N IMT2018036. Solves the ANARC05B problem in SPOJ."""
 
 import typing
 

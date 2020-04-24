@@ -31,7 +31,7 @@ By Khaveesh (IMT2018036) & Sai Rithwik (IMT2018061)
   - [Bibliography](#bibliography)
   - [Contributions](#contributions)
     - [Khaveesh Nagappan IMT2018036](#khaveesh-nagappan-imt2018036)
-    - [Sai Rithwik IMT2018064](#sai-rithwik-imt2018061)
+    - [Sai Rithwik IMT2018061](#sai-rithwik-imt2018061)
 
 ---
 
@@ -168,7 +168,7 @@ DoubleHelix(A,B,m,n)
   result, i, flag =0
   prevIndA, prevIndB = 0
   prefixA, prefixB
-  
+
   for i in range(A)
     bs = binary_search(A[i]
 
@@ -182,7 +182,7 @@ DoubleHelix(A,B,m,n)
 
       prevIndA = i
       prevIndB = bs
-  
+
   if (flag = 0):
     result += max(pa1[-1], pa2[-1])
   else:

@@ -1,5 +1,5 @@
 # coding=utf-8
-"""Tests the solution."""
+"""Author - Khaveesh N IMT2018036. Tests the solution."""
 import unittest
 
 import anarc05b_double_helix as dbl
