@@ -265,9 +265,13 @@ There are no side-effects in this code.
 - anarc05b_double_helix.py
 - test_double_helix.py
 - in.txt
+- TestCases Format.txt
+- SPOJ Success Screenshot
 
 ### Sai Rithwik IMT2018064
 
 - anarc05b_double_helix_greedy.py
 - Makefile
 - correct_tests.txt
+  
+![Image of Yaktocat](../blob/master/Assets/Double Helix Simple.heif)
