@@ -2,8 +2,6 @@
 
 By Khaveesh (IMT2018036) & Sai Rithwik (IMT2018061)
 
----
-
 ## Table of contents
 
 - [Report - ANARC05B - The Double HeLiX](#report---anarc05b---the-double-helix)
@@ -33,8 +31,6 @@ By Khaveesh (IMT2018036) & Sai Rithwik (IMT2018061)
     - [Khaveesh Nagappan IMT2018036](#khaveesh-nagappan-imt2018036)
     - [Sai Rithwik IMT2018061](#sai-rithwik-imt2018061)
 
----
-
 ## Run
 
 Change your current working directory by going into `DAA-DoubleHelix`
@@ -52,8 +48,6 @@ To run only algorithms:
 To run the tests:
 
 > make test
-
----
 
 ## Problem Statement
 
@@ -97,16 +91,11 @@ We can traverse the sequence in the following manner:
 - We may start at the beginning of any of the two sequences.
 - At each intersection point, we have the choice of either continuing with the same sequence, or switching to the other sequence.
 
----
-
 ## SPOJ Submission Status
 
-- Simple Approach
-  ![Simple](Assets/Double%20Helix%20Simple.png)
-- Greedy Approach
-  ![Greedy](Assets/Double%20Helix%20Greedy.png)
+![Simple Approach](Assets/Double%20Helix%20Simple.png)
 
----
+![Greedy Approach](Assets/Double%20Helix%20Greedy.png)
 
 ## Algorithm
 
@@ -131,8 +120,6 @@ We can traverse the sequence in the following manner:
 - **Step 3**: On finding an intersection we find the difference between the prefix sum at the current intersection and prefix sum at previous intersection for the respective sequences and then greedily select the maximum among both and add it to a _result_ variable.
 
 - **Step 4**: Since we have found the maximum till the final intersection, we now need to find the difference between the final element of prefix sum list and the final intersection for the respective sequences and then greedily select the maximum and add it to the _result_ variable
-
----
 
 ## Pseudocode
 
@@ -190,8 +177,6 @@ DoubleHelix(A,B,m,n)
                  ,prefixB[-1]-prefixB[prevIndb])
 ```
 
----
-
 ## Proof of Correctness
 
 ### Simple Approach
@@ -242,8 +227,6 @@ Without loss of generality, we can also prove for induction over j.
 
 Hence by induction, we have succesfully proved that the path taken by this method gives the maximum sum.
 
----
-
 ## Complexity
 
 ### Simple Approach
@@ -255,8 +238,6 @@ Hence by induction, we have succesfully proved that the path taken by this metho
 
 - **Time Complexity**: `O(m*log(n))` where `m` is the length of first sequence and `n` is the length of second sequence, as the worst case will occur when the binary search cannot find an intersection and, cost of each binary search is O(logn) which is iterated m times.
 - **Space Complexity**: `O(1)`
-
----
 
 ## Data Structures
 
@@ -286,3 +267,10 @@ There are no side-effects during execution of this code.
 - Makefile
 - correct_tests.txt
 - wrong_tests.txt
+
+---
+title: "Report - The Double Helix"
+author: [Khaveesh N, Sai Rithwik]
+date: "2020-04-24"
+keywords: [SPOJ, ANARC05B]
+...
