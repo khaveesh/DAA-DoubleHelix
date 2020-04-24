@@ -1,6 +1,6 @@
 # Report - ANARC05B - The Double HeLiX
 
-By Khaveesh (IMT2018036) & Sai Rithwik (IMT2018064)
+By Khaveesh (IMT2018036) & Sai Rithwik (IMT2018061)
 
 ---
 
@@ -31,7 +31,7 @@ By Khaveesh (IMT2018036) & Sai Rithwik (IMT2018064)
   - [Bibliography](#bibliography)
   - [Contributions](#contributions)
     - [Khaveesh Nagappan IMT2018036](#khaveesh-nagappan-imt2018036)
-    - [Sai Rithwik IMT2018064](#sai-rithwik-imt2018064)
+    - [Sai Rithwik IMT2018064](#sai-rithwik-imt2018061)
 
 ---
 
@@ -269,8 +269,8 @@ There are no side-effects during execution of this code.
 
 ## Bibliography
 
-- [Multivariable Mathematical Induction](https://www.mathblog.dk/proof-method-multidimensional-induction/)
 - **Introduction to Algorithms** by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein
+- [Multivariable Mathematical Induction](https://www.mathblog.dk/proof-method-multidimensional-induction/)
 
 ## Contributions
 
@@ -281,8 +281,9 @@ There are no side-effects during execution of this code.
 - in.txt
 - TestCases Format.txt
 
-### Sai Rithwik IMT2018064
+### Sai Rithwik IMT2018061
 
 - anarc05b_double_helix_greedy.py
 - Makefile
 - correct_tests.txt
+- wrong_tests.txt
