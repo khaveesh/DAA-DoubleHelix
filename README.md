@@ -25,7 +25,7 @@
         - [Greedy Approach](#greedy-approach-3)
     - [Other Details](#other-details)
         - [Side Effects in the code](#side-effects-in-the-code)
-    - [Contributions](#contributions)
+    - [Contributions and Bibliography](#contributions-and-bibliography)
 
 ---
 
@@ -241,6 +241,7 @@ Hence by induction, we have succesfully proved that the path taken by this metho
 - **Time Complexity**: `O(m*log(n))` where `m` is the length of first sequence and `n` is the length of second sequence, as the worst case will occur when the binary search cannot find an intersection and, cost of each binary search is O(logn) which is iterated m times.
 
 - **Space Complexity**: `O(1)`
+
 ---
 
 ## Other Details
@@ -249,6 +250,8 @@ Hence by induction, we have succesfully proved that the path taken by this metho
 
 There are no side-effects in this code.
 
-## Contributions 
+## Contributions and Bibliography
+
+- [Multivariable Mathematical Induction](https://www.mathblog.dk/proof-method-multidimensional-induction/)
 
 
