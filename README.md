@@ -41,7 +41,7 @@ Change your current working directory by going into `DAA-DoubleHelix`
 
 > cd DAA-DoubleHelix
 
-To run both the algorithms and all the tests
+To run both the algorithms and all the tests:
 
 > make
 
@@ -49,7 +49,7 @@ To run only algorithms:
 
 > make run
 
-To run the tests
+To run the tests:
 
 > make test
 
@@ -59,7 +59,7 @@ To run the tests
 
 [Source](https://www.spoj.com/problems/ANARC05B/)
 
-Two ﬁnite, strictly increasing, integer sequences are given. Any common integer between the two sequences constitute an intersection point. Take for example the following two sequences where intersection points are printed in bold:
+Two finite, strictly increasing, integer sequences are given. Any common integer between the two sequences constitute an intersection point. Take for example the following two sequences where intersection points are printed in bold:
 
 First= 3 5 **7** 9 20 **25** 30 40 **55** 56 **57** 60 62
 
@@ -102,9 +102,9 @@ We can traverse the sequence in the following manner:
 ## SPOJ Submission Status
 
 - Simple Approach
-  ![Simple](../master/Assets/Double%20Helix%20Simple.png)
+  ![Simple](Assets/Double%20Helix%20Simple.png)
 - Greedy Approach
-  ![Greedy](../master/Assets/Double%20Helix%20Greedy.png)
+  ![Greedy](Assets/Double%20Helix%20Greedy.png)
 
 ---
 
@@ -138,7 +138,7 @@ We can traverse the sequence in the following manner:
 
 ### Simple Approach
 
-```
+```Python
 DoubleHelix(A,B,m,n)
   sum1 = 0
   sum2 = 0
@@ -163,7 +163,7 @@ DoubleHelix(A,B,m,n)
 
 ### Greedy Approach
 
-```
+```Python
 DoubleHelix(A,B,m,n)
   result, i, flag =0
   prevIndA, prevIndB = 0
@@ -186,7 +186,8 @@ DoubleHelix(A,B,m,n)
   if (flag = 0):
     result += max(pa1[-1], pa2[-1])
   else:
-    result += max(prefixA[-1]-prefixA[prevIndA]     ,prefixB[-1]-prefixB[prevIndb])
+    result += max(prefixA[-1]-prefixA[prevIndA]
+                 ,prefixB[-1]-prefixB[prevIndb])
 ```
 
 ---
