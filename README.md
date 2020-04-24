@@ -70,13 +70,13 @@ The objective is finding a path that produces the maximum sum of data you walked
 
 We are given two lists of the format
 
-> n v<sub>1</sub> v<sub>2</sub> ... v<sub>n</sub>
+> n v~1~ v~2~ ... v~n~
 
-where n is the length of the sequence, v<sub>i</sub> is the i<sup>th</sup> element of the sequence.
+where n is the length of the sequence, v~i~ is the i^th^ element of the sequence.
 
 > n <= 10000
 >
-> -10000 < v<sub>i</sub> < 10000
+> -10000 < v~i~ < 10000
 
 `0` indicates the end of input
 
@@ -181,29 +181,29 @@ DoubleHelix(A,B,m,n)
 
 ### Simple Approach
 
-Let's assume _m_ be the length of list 1, _a_<sub>i</sub> be an element of list 1, _n_ be the length of list 2, _b_<sub>i</sub> be an element of list 2.
+Let's assume _m_ be the length of list 1, _a_~i~ be an element of list 1, _n_ be the length of list 2, _b_~i~ be an element of list 2.
 
 We have to prove that by using the following algoritm we get the maximum sum.
 
 Since the elements in both the lists are ordered in non-decreasing order, we can predict where the elements from both the lists will attain equality i.e. intersection points.
 
-- When _a_<sub>i</sub> < _b_<sub>i</sub>: This implies that _a_<sub>i</sub> must increase to become equal to _b_<sub>i</sub>. Thus we add _a_<sub>i</sub> to sum1 because it is on the path to the next intersection point and traverse to the next element in the first list.
+- When _a_~i~ < _b_~i~: This implies that _a_~i~ must increase to become equal to _b_~i~. Thus we add _a_~i~ to sum1 because it is on the path to the next intersection point and traverse to the next element in the first list.
 
-- When _a_<sub>i</sub> > _b_<sub>i</sub>: This implies that _b_<sub>i</sub> must increase to become equal to _a_<sub>i</sub>. Thus we add _b_<sub>i</sub> to sum2 because it is on the path to the next intersection point and traverse to the next element in the second list.
+- When _a_~i~ > _b_~i~: This implies that _b_~i~ must increase to become equal to _a_~i~. Thus we add _b_~i~ to sum2 because it is on the path to the next intersection point and traverse to the next element in the second list.
 
-- When _a_<sub>i</sub> = _b_<sub>i</sub>: It is an intersection point. Thus we need to compare and find the maximum of the sum variables in order to maximize the sum.
+- When _a_~i~ = _b_~i~: It is an intersection point. Thus we need to compare and find the maximum of the sum variables in order to maximize the sum.
 
 Hence, we have succesfully proved that the path taken by this method gives the maximum sum.
 
 ### Greedy Approach
 
-Let's assume _m_ be the size of list 1, _a_<sub>i</sub> be an element of sequence 1 and _pa_<sub>i</sub> be the difference between prefix sum at index _i_ and prefix sum at previous point of intersection(which is initially 0), _n_ be the length of list 2 , _b_<sub>i</sub> be an element of sequence 2 and _pb_<sub>i</sub> be the difference between prefix sum at index _i_ and prefix sum at previous point of intersection(which is initially 0)
+Let's assume _m_ be the size of list 1, _a_~i~ be an element of sequence 1 and _pa_~i~ be the difference between prefix sum at index _i_ and prefix sum at previous point of intersection(which is initially 0), _n_ be the length of list 2 , _b_~i~ be an element of sequence 2 and _pb_~i~ be the difference between prefix sum at index _i_ and prefix sum at previous point of intersection(which is initially 0)
 
 We have to prove that by using the following greedy algoritm we get the maximum sum.
 
 **Base Case:** We need to show that we get a maximum sum when we have two sequences of length 1.
 
-Since the length is 1, there can be two cases, either a<sub>1</sub> and b<sub>1</sub> same or they aren't same. If a<sub>1</sub> and b<sub>1</sub> are same then the _binary search_ determines that there is a point of intersection and then adds as max(a<sub>1</sub>, b<sub>1</sub>) which are the same at index 1 to the _result_ variable. Then according to _step 4_, the difference generated will be 0 for both the sequences. Hence there won't be any change in result. Therefore we get the maximum in this case. The second case when both are not equal, then we directly go to _step 4_ and accordingly maximum is choosen from both the sequences from max(pa<sub>1</sub>, pb<sub>1</sub>) which is equivalent to max(a<sub>1</sub>, b<sub>1</sub>). Hence the given proposition is true for n = 1 as we get the maximum sum from this single node path.
+Since the length is 1, there can be two cases, either a~1~ and b~1~ same or they aren't same. If a~1~ and b~1~ are same then the _binary search_ determines that there is a point of intersection and then adds as max(a~1~, b~1~) which are the same at index 1 to the _result_ variable. Then according to _step 4_, the difference generated will be 0 for both the sequences. Hence there won't be any change in result. Therefore we get the maximum in this case. The second case when both are not equal, then we directly go to _step 4_ and accordingly maximum is choosen from both the sequences from max(pa~1~, pb~1~) which is equivalent to max(a~1~, b~1~). Hence the given proposition is true for n = 1 as we get the maximum sum from this single node path.
 
 **Induction Step over i:** Assuming that our proposition holds true for sequences of length i, 1 respectively, we need to show that it is also true for i+1, 1.
 
@@ -211,13 +211,13 @@ This means that till i there can be two cases, either intersection occurs or int
 
 - Case 1: Intersection doesn't occur till i
 
-We know that we have maximum sum till the element at index i(assumption). Let this maximum sum(which is max(pa<sub>i</sub>, pb<sub>1</sub>)) be m1. Now at index i+1 there might or might not be be an intersection. If element at i+1 and b<sub>1</sub> intersect then we can tell that we get a maximum sum m1 + max(a<sub>i+1</sub>, b<sub>1</sub>), as they are identified by the binary search and then added to the result variable. Similar is the case when they don't intersect. Then we directly go to step 4 where we find max(pa<sub>i+1</sub>, pb<sub>1</sub>) which would obviously give us the maximum sum as the given sequence to us is strictly increasing.
+We know that we have maximum sum till the element at index i(assumption). Let this maximum sum(which is max(pa~i~, pb~1~)) be m1. Now at index i+1 there might or might not be be an intersection. If element at i+1 and b~1~ intersect then we can tell that we get a maximum sum m1 + max(a~i+1~, b~1~), as they are identified by the binary search and then added to the result variable. Similar is the case when they don't intersect. Then we directly go to step 4 where we find max(pa~i+1~, pb~1~) which would obviously give us the maximum sum as the given sequence to us is strictly increasing.
 
 - Case 2: If intersection has occured at i or before i.
 
 Since the given sequence is strictly increasing, and intersection has already occured at index i, it means that intersection will never occur at index i+1. Which implies that the maximum would be the prefix sum at index i+1. We have to prove that our algorithm gives that value.
 
-At intersection index k our algorithm chooses max(pa<sub>k</sub>, 1) in step 3. Hence, the answer generated will be pa<sub>k</sub>. Now after completing to step 4 we will have the result as Prefix Sum till i, since size of i > 1 which obviously is the maximum. Similar is the case when an additional element is added. It will be added in step 4. Since Prefix Sum till i + a<sub>i+1</sub> is Prefix Sum till i+1. Hence the answer is Prefix Sum till i+1<sup>th</sup> element, which is greater than b<sub>1</sub> as intersection already occurred.
+At intersection index k our algorithm chooses max(pa~k~, 1) in step 3. Hence, the answer generated will be pa~k~. Now after completing to step 4 we will have the result as Prefix Sum till i, since size of i > 1 which obviously is the maximum. Similar is the case when an additional element is added. It will be added in step 4. Since Prefix Sum till i + a~i+1~ is Prefix Sum till i+1. Hence the answer is Prefix Sum till i+1^th^ element, which is greater than b~1~ as intersection already occurred.
 
 Basic logic behind reasoning in above case is a+b > a, given b > 0.
 
