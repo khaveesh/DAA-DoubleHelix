@@ -98,9 +98,9 @@ We can traverse the sequence in the following manner:
 ## SPOJ Submission Status
 
 - Simple Approach
-  ![Simple](../blob/master/Assets/Double%20Helix%Simple.png)
+  ![Simple](../master/Assets/Double%20Helix%Simple.png)
 - Greedy Approach
-  ![Greedy](../blob/master/Assets/Double%20Helix%20Greedy.png)
+  ![Greedy](../master/Assets/Double%20Helix%20Greedy.png)
 
 ---
 
