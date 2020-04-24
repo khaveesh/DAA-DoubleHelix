@@ -1,7 +1,5 @@
 # Report - ANARC05B - The Double HeLiX
 
-By Khaveesh (IMT2018036) & Sai Rithwik (IMT2018061)
-
 ## Table of contents
 
 - Report - ANARC05B - The Double HeLiX
@@ -266,8 +264,10 @@ There are no side-effects during execution of this code.
 - wrong_tests.txt
 
 ---
-title: "Report - The Double Helix"
-author: [Khaveesh N, Sai Rithwik]
+title: "ANARC05B - The Double HeLiX"
+author: [Khaveesh N IMT2018036, Sai Rithwik IMT2018061]
 date: "2020-04-24"
 keywords: [SPOJ, ANARC05B]
+titlepage: true
+footnotes-pretty: true
 ...
