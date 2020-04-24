@@ -28,6 +28,8 @@
     - [Khaveesh Nagappan IMT2018036](#khaveesh-nagappan-imt2018036)
     - [Sai Rithwik IMT2018061](#sai-rithwik-imt2018061)
 
+\pagebreak
+
 ## Run
 
 Change your current working directory by going into `DAA-DoubleHelix`
@@ -52,9 +54,8 @@ To run the tests:
 
 Two finite, strictly increasing, integer sequences are given. Any common integer between the two sequences constitute an intersection point. Take for example the following two sequences where intersection points are printed in bold:
 
-First= 3 5 **7** 9 20 **25** 30 40 **55** 56 **57** 60 62
-
-Second= 1 4 **7** 11 14 **25** 44 47 **55** **57** 100
+- First= 3 5 **7** 9 20 **25** 30 40 **55** 56 **57** 60 62
+- Second= 1 4 **7** 11 14 **25** 44 47 **55** **57** 100
 
 You can _walk_ over these two sequences in the following way:
 
@@ -65,19 +66,19 @@ The objective is finding a path that produces the maximum sum of data you walked
 
 ### Input
 
-We are given two lists of the format
+The program will be tested on a number of test cases. Each test case will be specified on two separate lines. Each line denotes a sequence and is specified using the following format:
 
 > n v₁ v₂ ... v~n~
 
 where n is the length of the sequence, v~i~ is the i^th^ element of the sequence.
 
-> **n <= 10000**  and  **-10000 <= v~i~ <= 10000**
+> **1 <= n <= 10000**  and  **-10000 <= v~i~ <= 10000**
 
 `0` indicates the end of input
 
 ### Output
 
-Largest possible sum that can be produced by traversing the path according to the given conditions
+For each test case, write on a separate line, the largest possible sum that can be produced.
 
 ### Conditions
 
@@ -98,11 +99,11 @@ We can traverse the sequence in the following manner:
 
 - **Step 1**: Set sum1 & sum2 to be 0.
 
-- **Step 2**: Compare the values at the first index of both lists. Whichever is lesser, add its value to the appropriate sum variable and increment its index. Repeat this step until both the values are equal.
+- **Step 2**: Compare the values at the first index of both lists. Whichever is lesser, add its value to the appropriate sum variable and increment that lists's index. Repeat this step until both the values are equal.
 
-- **Step 3**: When they are equal, add both the values to their appropriate sum variable. Then find the maximum among sum1 & sum2 and assign that value to both of them. Then increment the index of both the lists.
+- **Step 3**: When they are equal, add the value to both sum variables. Then find the maximum among sum1 & sum2 and assign that value to both of them. Then increment the index of both the lists.
 
-- **Step 4**: When the index of either one of the list is exhausted, add the remaining values in the other list to its appropriate sum variable.
+- **Step 4**: When the elements of either one of the list is exhausted, add the remaining values in the other list to its appropriate sum variable.
 
 - **Step 5**: Return the maximum of sum1 & sum2
 
@@ -180,7 +181,7 @@ Let's assume _m_ be the length of list 1, _a_~i~ be an element of list 1, _n_ be
 
 We have to prove that by using the following algoritm we get the maximum sum.
 
-Since the elements in both the lists are ordered in non-decreasing order, we can predict where the elements from both the lists will attain equality i.e. intersection points.
+Since the elements in both the lists are ordered in strictly increasing order, we can predict where the elements from both the lists will attain equality i.e. intersection points.
 
 - When _a_~i~ < _b_~i~: This implies that _a_~i~ must increase to become equal to _b_~i~. Thus we add _a_~i~ to sum1 because it is on the path to the next intersection point and traverse to the next element in the first list.
 
@@ -236,7 +237,7 @@ Hence by induction, we have succesfully proved that the path taken by this metho
 
 ## Data Structures
 
-We have used Python lists & tuples only.
+We have used Python's built-in lists & tuples only.
 
 ## Side Effects
 
@@ -253,7 +254,7 @@ There are no side-effects during execution of this code.
 
 - anarc05b_double_helix.py
 - test_double_helix.py
-- in.txt
+- README
 - TestCases Format.txt
 
 ### Sai Rithwik IMT2018061
