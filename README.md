@@ -4,8 +4,7 @@ By Khaveesh (IMT2018036) & Sai Rithwik (IMT2018061)
 
 ## Table of contents
 
-- [Report - ANARC05B - The Double HeLiX](#report---anarc05b---the-double-helix)
-  - [Table of contents](#table-of-contents)
+- Report - ANARC05B - The Double HeLiX
   - [Run](#run)
   - [Problem Statement](#problem-statement)
     - [Input](#input)
@@ -74,9 +73,7 @@ We are given two lists of the format
 
 where n is the length of the sequence, v~i~ is the i^th^ element of the sequence.
 
-> n <= 10000
->
-> -10000 < v~i~ < 10000
+> **n <= 10000**  and  **-10000 <= v~i~ <= 10000**
 
 `0` indicates the end of input
 
@@ -236,7 +233,7 @@ Hence by induction, we have succesfully proved that the path taken by this metho
 
 ### Greedy Approach
 
-- **Time Complexity**: `O(m*log(n))` where `m` is the length of first sequence and `n` is the length of second sequence, as the worst case will occur when the binary search cannot find an intersection and, cost of each binary search is O(logn) which is iterated m times.
+- **Time Complexity**: `O(m*log(n))` where `m` is the length of first sequence and `n` is the length of second sequence, as the worst case will occur when the binary search cannot find an intersection and, cost of each binary search is `O(logn)` which is iterated m times.
 - **Space Complexity**: `O(1)`
 
 ## Data Structures
