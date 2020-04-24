@@ -5,25 +5,25 @@
 ## Table of contents
 
 - [Report - ANARC05B - The Double HeLiX](#report---anarc05b---the-double-helix)
-  - [Table of contents](#table-of-contents)
-  - [Installation and Setup](#installation-and-setup)
-    - [Installation](#installation)
-    - [Run](#run)
-  - [Problem Statement](#problem-statement)
-    - [Input](#input)
-    - [Output](#output)
-    - [Conditions](#conditions)
-  - [Algorithm](#algorithm)
-    - [Simple Approach](#simple-approach)
-    - [Greedy Approach](#greedy-approach)
-  - [Proof of Correctness](#proof-of-correctness)
-    - [Simple Approach](#simple-approach-1)
-    - [Greedy Approach](#greedy-approach-1)
-  - [Complexity](#complexity)
-    - [Simple Approach](#simple-approach-2)
-    - [Greedy Approach](#greedy-approach-2)
-  - [Other Details](#other-details)
-    - [Side Effects in the code](#side-effects-in-the-code)
+    - [Table of contents](#table-of-contents)
+    - [Installation and Setup](#installation-and-setup)
+        - [Installation](#installation)
+        - [Run](#run)
+    - [Problem Statement](#problem-statement)
+        - [Input](#input)
+        - [Output](#output)
+        - [Conditions](#conditions)
+    - [Algorithm](#algorithm)
+        - [Simple Approach](#simple-approach)
+        - [Greedy Approach](#greedy-approach)
+    - [Proof of Correctness](#proof-of-correctness)
+        - [Simple Approach](#simple-approach-1)
+        - [Greedy Approach](#greedy-approach-1)
+    - [Complexity](#complexity)
+        - [Simple Approach](#simple-approach-2)
+        - [Greedy Approach](#greedy-approach-2)
+    - [Other Details](#other-details)
+        - [Side Effects in the code](#side-effects-in-the-code)
 
 ---
 
@@ -63,7 +63,7 @@ First= 3 5 **7** 9 20 **25** 30 40 **55** 56 **57** 60 62
 
 Second= 1 4 **7** 11 14 **25** 44 47 **55** **57** 100
 
-You can *walk* over these two sequences in the following way:
+You can _walk_ over these two sequences in the following way:
 
 You may start at the beginning of any of the two sequences. Now start moving forward.
 At each intersection point, you have the choice of either continuing with the same sequence you’re currently on, or switching to the other sequence.
@@ -109,10 +109,37 @@ We can traverse the sequence in the following manner:
 
 ### Greedy Approach
 
-- **Step 1**: We generate the *prefix sum lists* of the given two sequences.
-- **Step 2**: We find the point of intersection of both lists. To do this we iterate through every element in a sequence and then perform a *binary search* for the intersection on the second sequence.
-- **Step 3**: On finding an intersection we find the difference between the prefix sum at the current intersection and prefix sum at previous intersection for the respective sequences and then greedily select the maximum among both and add it to a *result* variable.
-- **Step 4**: Since we have found the maximum till the final intersection, we now need to find the difference between the final element of prefix sum list and the final intersection for the respective sequences and then greedily select the maximum and add it to the *result* variable
+- **Step 1**: We generate the _prefix sum lists_ of the given two sequences.
+- **Step 2**: We find the point of intersection of both lists. To do this we iterate through every element in a sequence and then perform a _binary search_ for the intersection on the second sequence.
+- **Step 3**: On finding an intersection we find the difference between the prefix sum at the current intersection and prefix sum at previous intersection for the respective sequences and then greedily select the maximum among both and add it to a _result_ variable.
+- **Step 4**: Since we have found the maximum till the final intersection, we now need to find the difference between the final element of prefix sum list and the final intersection for the respective sequences and then greedily select the maximum and add it to the _result_ variable
+
+---
+
+## Pseudocode
+
+### Simple Approach
+
+DoubleHelix(A,B,m,n)
+sum1 = 0
+sum2 = 0
+i=0
+j=0
+while i<m and j<n
+  if A[i]<B[j]
+    sum1+=A[i++]
+  else if A[i]>B[j]
+    sum2+=B[j++]
+  else
+    sum1+=A[i]
+    sum2+=B[j]
+    sum1=sum2=max(sum1,sum2)
+    i++,j++
+while i<m
+  sum1+=A[i++]
+while j<n
+  sum2+B[j++]
+return max(sum1,sum2)
 
 ---
 
@@ -120,15 +147,27 @@ We can traverse the sequence in the following manner:
 
 ### Simple Approach
 
+Let's assume _m_ be the length of list 1, _a_<sub>i</sub> be an element of sequence 1, _n_ be the length of list 2 , _b_<sub>i</sub> be an element of sequence 2.
+
+We have to prove that by using the following algoritm we get the maximum sum.
+
+Since the elements in both the lists are ordered in non-decreasing order, we can predict where the elements from both the lists will attain equality i.e. intersection points.
+
+- When _a_<sub>i</sub> < _b_<sub>i</sub>: This implies that _a_<sub>i</sub> must increase to become equal to _b_<sub>i</sub>. Thus we add _a_<sub>i</sub> to sum1 because it is on the path to the next intersection point and traverse to the next element in the first list.
+- When _a_<sub>i</sub> > _b_<sub>i</sub>: This implies that _b_<sub>i</sub> must increase to become equal to _a_<sub>i</sub>. Thus we add _b_<sub>i</sub> to sum2 because it is on the path to the next intersection point and traverse to the next element in the second list.
+- When _a_<sub>i</sub> = _b_<sub>i</sub>: It is an intersection point. Thus we need to compare and find the maximum of the sum variables in order to maximize the sum.
+
+Hence, we have succesfully proved that the path taken by this method gives the maximum sum.
+
 ### Greedy Approach
 
-Let's assume *m* be the size of list 1, *a*<sub>i</sub> be an element of sequence 1 and *pa*<sub>i</sub> be the difference between prefix sum at index *i* and prefix sum at previous point of intersection(which is initially 0), *n* be the length of list 2 , *b*<sub>i</sub> be an element of sequence 2 and *pb*<sub>i</sub> be the difference between prefix sum at index *i* and prefix sum at previous point of intersection(which is initially 0)
+Let's assume _m_ be the size of list 1, _a_<sub>i</sub> be an element of sequence 1 and _pa_<sub>i</sub> be the difference between prefix sum at index _i_ and prefix sum at previous point of intersection(which is initially 0), _n_ be the length of list 2 , _b_<sub>i</sub> be an element of sequence 2 and _pb_<sub>i</sub> be the difference between prefix sum at index _i_ and prefix sum at previous point of intersection(which is initially 0)
 
 We have to prove that by using the following greedy algoritm we get the maximum sum.
 
 **Base Case:** We need to show that we get a maximum sum when we have two sequences of length 1.
 
-Since the length is 1, there can be two cases, either a<sub>1</sub> and b<sub>1</sub> same or they aren't same. If a<sub>1</sub> and b<sub>1</sub> are same then the *binary search* determines that there is a point of intersection and then adds as `max(`a<sub>1</sub>, b<sub>1</sub>`)` which are the same at index 1 to the *result* variable. Then according to *step 4*, the difference generated will be 0 for both the sequences. Hence there won't be any change in result. Therefore we get the maximum in this case. The second case when both are not equal, then we directly go to *step 4* and accordingly maximum is choosen from both the sequences from `max(`pa<sub>1</sub>, pb<sub>1</sub>`)` which is equivalent to `max(`a<sub>1</sub>, b<sub>1</sub>`)`. Hence the given proposition is true for n = 1 as we get the maximum sum from this single node path.
+Since the length is 1, there can be two cases, either a<sub>1</sub> and b<sub>1</sub> same or they aren't same. If a<sub>1</sub> and b<sub>1</sub> are same then the _binary search_ determines that there is a point of intersection and then adds as `max(`a<sub>1</sub>, b<sub>1</sub>`)` which are the same at index 1 to the _result_ variable. Then according to _step 4_, the difference generated will be 0 for both the sequences. Hence there won't be any change in result. Therefore we get the maximum in this case. The second case when both are not equal, then we directly go to _step 4_ and accordingly maximum is choosen from both the sequences from `max(`pa<sub>1</sub>, pb<sub>1</sub>`)` which is equivalent to `max(`a<sub>1</sub>, b<sub>1</sub>`)`. Hence the given proposition is true for n = 1 as we get the maximum sum from this single node path.
 
 **Induction Step over i:** Assuming that our proposition holds true for sequences of length i, 1 respectively, we need to show that it is also true for i+1, 1.
 
@@ -158,7 +197,7 @@ Hence by induction, we have succesfully proved that the path taken by this metho
 
 ### Simple Approach
 
-- **Time Complexity**: `O(m+n)` where `m` is the length of first sequence and `n` is the length of second sequence.
+- **Time Complexity**: `O(m+n)` where `m` is the length of first sequence and `n` is the length of second sequence. This is because the worst case for this algorithm occurs when there are no intersection points and thus each element in both lists will be added to the sum variables.
 - **Space Complexity**: `O(1)`
 
 ### Greedy Approach
