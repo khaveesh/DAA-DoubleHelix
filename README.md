@@ -254,7 +254,6 @@ Hence by induction, we have succesfully proved that the path taken by this metho
 ### Greedy Approach
 
 - **Time Complexity**: `O(m*log(n))` where `m` is the length of first sequence and `n` is the length of second sequence, as the worst case will occur when the binary search cannot find an intersection and, cost of each binary search is O(logn) which is iterated m times.
-
 - **Space Complexity**: `O(1)`
 
 ---
