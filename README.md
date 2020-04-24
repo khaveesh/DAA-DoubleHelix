@@ -274,4 +274,4 @@ There are no side-effects in this code.
 - Makefile
 - correct_tests.txt
   
-![Image of Yaktocat](../blob/master/Assets/Double Helix Simple.heif)
+![Image of Yaktocat](https://github.com/khaveesh/DAA-DoubleHelix/blob/master/Assets/Double%20Helix%20Greedy.heic)
