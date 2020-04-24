@@ -95,6 +95,15 @@ We can traverse the sequence in the following manner:
 
 ---
 
+## SPOJ Submission Status
+
+- Simple Approach
+  ![Simple](../blob/master/Assets/Double%20Helix%Simple.png)
+- Greedy Approach
+  ![Greedy](../blob/master/Assets/Double%20Helix%20Greedy.png)
+
+---
+
 ## Algorithm
 
 ### Simple Approach
@@ -273,5 +282,3 @@ There are no side-effects in this code.
 - anarc05b_double_helix_greedy.py
 - Makefile
 - correct_tests.txt
-  
-![Image of Yaktocat](https://github.com/khaveesh/DAA-DoubleHelix/blob/master/Assets/Double%20Helix%20Greedy.png)
