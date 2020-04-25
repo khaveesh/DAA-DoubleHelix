@@ -113,7 +113,7 @@ We can traverse the sequence in the following manner:
 
 -   **Step 1**: Set sum1 & sum2 to be 0.
 
--   **Step 2**: Compare the values at the first index of both lists. Whichever is lesser, add its value to the appropriate sum variable and increment that lists's index. Repeat this step until both the values are equal.
+-   **Step 2**: Compare the values at the first index of both lists. Whichever is lesser, add its value to the appropriate sum variable and increment that list's index. Repeat this step until both the values are equal.
 
 -   **Step 3**: When they are equal, add the value to both sum variables. Then find the maximum among sum1 & sum2 and assign that value to both of them. Then increment the index of both the lists.
 
@@ -193,7 +193,7 @@ DoubleHelix(A,B,m,n)
 
 Let's assume *m* be the length of list 1, *a*~i~ be an element of list 1, *n* be the length of list 2, *b*~i~ be an element of list 2.
 
-We have to prove that by using the following algoritm we get the maximum sum.
+We have to prove that by using the following algorithm we get the maximum sum.
 
 Since the elements in both the lists are ordered in strictly increasing order, we can predict where the elements from both the lists will attain equality i.e. intersection points.
 
@@ -203,17 +203,17 @@ Since the elements in both the lists are ordered in strictly increasing order, w
 
 -   When *a*~i~ = *b*~i~: It is an intersection point. Thus we need to compare and find the maximum of the sum variables in order to maximize the sum.
 
-Hence, we have succesfully proved that the path taken by this method gives the maximum sum.
+Hence, we have successfully proved that the path taken by this method gives the maximum sum.
 
 ### Greedy Approach
 
 Let's assume *m* be the size of list 1, *a*~i~ be an element of sequence 1 and *pa*~i~ be the difference between prefix sum at index *i* and prefix sum at previous point of intersection(which is initially 0), *n* be the length of list 2 , *b*~i~ be an element of sequence 2 and *pb*~i~ be the difference between prefix sum at index *i* and prefix sum at previous point of intersection(which is initially 0)
 
-We have to prove that by using the following greedy algoritm we get the maximum sum.
+We have to prove that by using the following greedy algorithm we get the maximum sum.
 
 **Base Case:** We need to show that we get a maximum sum when we have two sequences of length 1.
 
-Since the length is 1, there can be two cases, either a₁ and b₁ same or they aren't same. If a₁ and b₁ are same then the *binary search* determines that there is a point of intersection and then adds as max(a₁, b₁) which are the same at index 1 to the *result* variable. Then according to *step 4*, the difference generated will be 0 for both the sequences. Hence there won't be any change in result. Therefore we get the maximum in this case. The second case when both are not equal, then we directly go to *step 4* and accordingly maximum is choosen from both the sequences from max(pa₁, pb₁) which is equivalent to max(a₁, b₁). Hence the given proposition is true for n = 1 as we get the maximum sum from this single node path.
+Since the length is 1, there can be two cases, either a₁ and b₁ same or they aren't same. If a₁ and b₁ are same then the *binary search* determines that there is a point of intersection and then adds as max(a₁, b₁) which are the same at index 1 to the *result* variable. Then according to *step 4*, the difference generated will be 0 for both the sequences. Hence there won't be any change in result. Therefore we get the maximum in this case. The second case when both are not equal, then we directly go to *step 4* and accordingly maximum is chosen from both the sequences from max(pa₁, pb₁) which is equivalent to max(a₁, b₁). Hence the given proposition is true for n = 1 as we get the maximum sum from this single node path.
 
 **Induction Step over i:** Assuming that our proposition holds true for sequences of length i, 1 respectively, we need to show that it is also true for i+1, 1.
 
@@ -223,9 +223,9 @@ This means that till i there can be two cases, either intersection occurs or int
 
 We know that we have maximum sum till the element at index i(assumption). Let this maximum sum(which is max(pa~i~, pb₁)) be m1. Now at index i+1 there might or might not be be an intersection. If element at i+1 and b₁ intersect then we can tell that we get a maximum sum m1 + max(a~i+1~, b₁), as they are identified by the binary search and then added to the result variable. Similar is the case when they don't intersect. Then we directly go to step 4 where we find max(pa~i+1~, pb₁) which would obviously give us the maximum sum as the given sequence to us is strictly increasing.
 
--   Case 2: If intersection has occured at i or before i.
+-   Case 2: If intersection has occurred at i or before i.
 
-Since the given sequence is strictly increasing, and intersection has already occured at index i, it means that intersection will never occur at index i+1. Which implies that the maximum would be the prefix sum at index i+1. We have to prove that our algorithm gives that value.
+Since the given sequence is strictly increasing, and intersection has already occurred at index i, it means that intersection will never occur at index i+1. Which implies that the maximum would be the prefix sum at index i+1. We have to prove that our algorithm gives that value.
 
 At intersection index k our algorithm chooses max(pa~k~, 1) in step 3. Hence, the answer generated will be pa~k~. Now after completing to step 4 we will have the result as Prefix Sum till i, since size of i \> 1 which obviously is the maximum. Similar is the case when an additional element is added. It will be added in step 4. Since Prefix Sum till i + a~i+1~ is Prefix Sum till i+1. Hence the answer is Prefix Sum till i+1^th^ element, which is greater than b₁ as intersection already occurred.
 
@@ -235,7 +235,7 @@ Hence proved.
 
 Without loss of generality, we can also prove for induction over j.
 
-Hence by induction, we have succesfully proved that the path taken by this method gives the maximum sum.
+Hence by induction, we have successfully proved that the path taken by this method gives the maximum sum.
 
 ## Complexity
 

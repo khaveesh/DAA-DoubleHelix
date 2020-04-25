@@ -113,7 +113,7 @@ We can traverse the sequence in the following manner:
 
   - **Step 2**: Compare the values at the first index of both lists.
     Whichever is lesser, add its value to the appropriate sum variable
-    and increment that lists’s index. Repeat this step until both the
+    and increment that list’s index. Repeat this step until both the
     values are equal.
 
   - **Step 3**: When they are equal, add the value to both sum
@@ -210,8 +210,8 @@ Let’s assume *m* be the length of list 1, *a*<sub>i</sub> be an element
 of list 1, *n* be the length of list 2, *b*<sub>i</sub> be an element of
 list 2.
 
-We have to prove that by using the following algoritm we get the maximum
-sum.
+We have to prove that by using the following algorithm we get the
+maximum sum.
 
 Since the elements in both the lists are ordered in strictly increasing
 order, we can predict where the elements from both the lists will attain
@@ -233,7 +233,7 @@ equality i.e. intersection points.
     Thus we need to compare and find the maximum of the sum variables in
     order to maximize the sum.
 
-Hence, we have succesfully proved that the path taken by this method
+Hence, we have successfully proved that the path taken by this method
 gives the maximum sum.
 
 ### Greedy Approach
@@ -246,7 +246,7 @@ element of sequence 2 and *pb*<sub>i</sub> be the difference between
 prefix sum at index *i* and prefix sum at previous point of
 intersection(which is initially 0)
 
-We have to prove that by using the following greedy algoritm we get the
+We have to prove that by using the following greedy algorithm we get the
 maximum sum.
 
 **Base Case:** We need to show that we get a maximum sum when we have
@@ -259,7 +259,7 @@ max(a₁, b₁) which are the same at index 1 to the *result* variable.
 Then according to *step 4*, the difference generated will be 0 for both
 the sequences. Hence there won’t be any change in result. Therefore we
 get the maximum in this case. The second case when both are not equal,
-then we directly go to *step 4* and accordingly maximum is choosen from
+then we directly go to *step 4* and accordingly maximum is chosen from
 both the sequences from max(pa₁, pb₁) which is equivalent to max(a₁,
 b₁). Hence the given proposition is true for n = 1 as we get the
 maximum sum from this single node path.
@@ -283,10 +283,10 @@ when they don’t intersect. Then we directly go to step 4 where we find
 max(pa<sub>i+1</sub>, pb₁) which would obviously give us the maximum sum
 as the given sequence to us is strictly increasing.
 
-  - Case 2: If intersection has occured at i or before i.
+  - Case 2: If intersection has occurred at i or before i.
 
 Since the given sequence is strictly increasing, and intersection has
-already occured at index i, it means that intersection will never occur
+already occurred at index i, it means that intersection will never occur
 at index i+1. Which implies that the maximum would be the prefix sum at
 index i+1. We have to prove that our algorithm gives that value.
 
@@ -305,7 +305,7 @@ Hence proved.
 
 Without loss of generality, we can also prove for induction over j.
 
-Hence by induction, we have succesfully proved that the path taken by
+Hence by induction, we have successfully proved that the path taken by
 this method gives the maximum sum.
 
 ## Complexity
