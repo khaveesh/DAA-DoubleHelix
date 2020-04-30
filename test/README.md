@@ -2,49 +2,22 @@
 author:
 - Khaveesh N IMT2018036
 - Sai Rithwik IMT2018061
+colorlinks: true
 date: '2020-04-24'
 footnotes-pretty: true
 keywords:
 - SPOJ
 - ANARC05B
 lang: 'en-GB'
+subject: DAA
 title: 'ANARC05B - The Double HeLiX'
 titlepage: true
+toc: true
+toc-own-page: true
 ---
 
-# Report - ANARC05B - The Double HeLiX
 
-## Table of contents
 
--   Report - ANARC05B - The Double HeLiX
-    -   [Run](#run)
-    -   [Problem Statement](#problem-statement)
-        -   [Input](#input)
-        -   [Output](#output)
-        -   [Conditions](#conditions)
-    -   [SPOJ Submission Status](#spoj-submission-status)
-    -   [Algorithm](#algorithm)
-        -   [Simple Approach](#simple-approach)
-        -   [Greedy Approach](#greedy-approach)
-    -   [Pseudocode](#pseudocode)
-        -   [Simple Approach](#simple-approach-1)
-        -   [Greedy Approach](#greedy-approach-1)
-    -   [Proof of Correctness](#proof-of-correctness)
-        -   [Simple Approach](#simple-approach-2)
-        -   [Greedy Approach](#greedy-approach-2)
-    -   [Complexity](#complexity)
-        -   [Simple Approach](#simple-approach-3)
-        -   [Greedy Approach](#greedy-approach-3)
-    -   [Data Structures](#data-structures)
-    -   [Side Effects](#side-effects)
-    -   [Bibliography](#bibliography)
-    -   [Contributions](#contributions)
-        -   [Khaveesh Nagappan IMT2018036](#khaveesh-nagappan-imt2018036)
-        -   [Sai Rithwik IMT2018061](#sai-rithwik-imt2018061)
-
-```{=tex}
-\pagebreak
-```
 ## Run
 
 Change your current working directory by going into `DAA-DoubleHelix`
