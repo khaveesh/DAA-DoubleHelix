@@ -2,6 +2,7 @@
 author:
 - Khaveesh N IMT2018036
 - Sai Rithwik IMT2018061
+author-meta: Khaveesh N IMT2018036
 colorlinks: true
 date: '2020-04-24'
 footnotes-pretty: true
@@ -11,7 +12,10 @@ keywords:
 lang: 'en-GB'
 subject: DAA
 title: 'ANARC05B - The Double HeLiX'
+title-meta: 'ANARC05B - The Double HeLiX'
 titlepage: true
+titlepage-background: background2.pdf
+titlepage-rule-color: 39474E
 toc: true
 toc-own-page: true
 ---

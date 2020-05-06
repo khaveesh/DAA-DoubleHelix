@@ -29,7 +29,7 @@ class DoubleHelix:
         Returns:
             The maximum sum possible.
         """
-        length = (self.first.pop(0), self.second.pop(0))
+        length: typing.Tuple[int, int] = (self.first.pop(0), self.second.pop(0))
 
         while self.iter_first < length[0] and self.iter_second < length[1]:
             self._solve_helper()
@@ -67,10 +67,10 @@ class DoubleHelix:
 if __name__ == "__main__":
     while True:
         # Convert string input to list of ints
-        FIRST = list(map(int, input().split()))
+        FIRST: typing.List[int] = list(map(int, input().split()))
         if FIRST[0] == 0:  # End condition
             break
-        SECOND = list(map(int, input().split()))
+        SECOND: typing.List[int] = list(map(int, input().split()))
 
         # Create an instance of the class and call solve function
         print(DoubleHelix(FIRST, SECOND).solve())
