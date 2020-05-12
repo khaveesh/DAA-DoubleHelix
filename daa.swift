@@ -53,7 +53,7 @@ class daa {
 
 while true {
     let first = readLine()?.split(separator: " ").map { Int(String($0))! }
-    if first?[0] == 0 { break }
+    if first?[0] == 0{ break }
     let second = readLine()?.split(separator: " ").map { Int(String($0))! }
     print(daa(first!, second!).solve())
 }
