@@ -7,7 +7,7 @@ class DHG:
 
     # Binary Search which returns the index of the matched value
     @staticmethod
-    def _binary_search(start, end, lst, value):
+    def binary_search(start, end, lst, value):
         while start <= end:
             mid = start + (end - start) // 2
 
@@ -40,21 +40,17 @@ class DHG:
 
         for index in range(self.arr1[0]):
             # Stores the index of arr2 where intersection has occured
-            bs_int = DHG._binary_search(
-                prev_max_ind2, self.arr2[0] - 1, arr2, arr1[index]
-            )
+            bs_int = DHG.binary_search(prev_max_ind2, self.arr2[0] - 1, arr2, arr1[index])
 
             if bs_int != -1:
                 if self.flag == 0:
-                    """ If there was no intersection previously,
-                        then select the maximum of pa1[index] and pa2[bs_int] """
+                    # If there was no intersection previously, then select the maximum of pa1[index] and pa2[bs_int]
                     self.flag = 1
                     self.result += max(pa1[index], pa2[bs_int])
                 else:
-                    """ Else, find the maximum of the difference between the
-                        prefix sum at current intersection and previous intersection """
+                    """ Else, find the maximum of the difference between the prefix sum at current intersection and previous intersection """
                     self.result += max(
-                        pa1[index] - pa1[prev_max_ind1], pa2[bs_int] - pa2[prev_max_ind2]
+                        pa1[index] - pa1[prev_max_ind1], pa2[bs_int] - pa2[prev_max_ind2],
                     )
 
                 prev_max_ind1 = index

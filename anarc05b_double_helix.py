@@ -1,27 +1,21 @@
-# coding=utf-8
 """Author - Khaveesh N IMT2018036. Solves the ANARC05B problem in SPOJ."""
 
 import typing
+from dataclasses import dataclass
 
 
+@dataclass
 class DoubleHelix:
     """Class to solve the double helix problem."""
 
-    def __init__(self, first: typing.List[int], second: typing.List[int]) -> None:
-        """Class variables are initialized with the input values.
+    first: typing.List[int]
+    second: typing.List[int]
 
-        Args:
-            first: The first array
-            second: The second array
-        """
-        self.first = first
-        self.second = second
+    iter_first = 0
+    iter_second = 0
 
-        self.iter_first: int = 0
-        self.iter_second: int = 0
-
-        self.sum1: int = 0
-        self.sum2: int = 0
+    sum1 = 0
+    sum2 = 0
 
     def solve(self) -> int:
         """Solves the double helix for the given input arrays.
