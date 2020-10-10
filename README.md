@@ -1,42 +1,30 @@
-# Report - ANARC05B - The Double HeLiX
+---
+colorlinks: true
+footnotes-pretty: true
+keywords:
+- SPOJ
+- ANARC05B
+subject: DAA
+title: 'ANARC05B - The Double HeLiX'
+title-meta: 'ANARC05B - The Double HeLiX'
+titlepage: true
+titlepage-background: background2.pdf
+titlepage-rule-color: 39474E
+toc: true
+toc-own-page: true
+---
 
-## Table of Contents
 
-  - [Report - ANARC05B - The Double HeLiX](#report---anarc05b---the-double-helix)
-      - [Run](#run)
-      - [Problem Statement](#problem-statement)
-          - [Input](#input)
-          - [Output](#output)
-          - [Conditions](#conditions)
-      - [SPOJ Submission Status](#spoj-submission-status)
-      - [Algorithm](#algorithm)
-          - [Simple Approach](#simple-approach)
-          - [Greedy Approach](#greedy-approach)
-      - [Pseudocode](#pseudocode)
-          - [Simple Approach](#simple-approach-1)
-          - [Greedy Approach](#greedy-approach-1)
-      - [Proof of Correctness](#proof-of-correctness)
-          - [Simple Approach](#simple-approach-2)
-          - [Greedy Approach](#greedy-approach-2)
-      - [Complexity](#complexity)
-          - [Simple Approach](#simple-approach-3)
-          - [Greedy Approach](#greedy-approach-3)
-      - [Data Structures](#data-structures)
-      - [Side Effects](#side-effects)
-      - [Bibliography](#bibliography)
-      - [Contributions](#contributions)
-          - [Khaveesh Nagappan IMT2018036](#khaveesh-nagappan-imt2018036)
-          - [Sai Rithwik IMT2018061](#sai-rithwik-imt2018061)
 
-## Run
+# Run
 
 Change your current working directory by going into `DAA-DoubleHelix`
 
-> cd DAA-DoubleHelix
+    cd DAA-DoubleHelix
 
 To run both the algorithms and all the tests:
 
-> make
+    make
 
 To run only algorithms:
 
@@ -44,79 +32,101 @@ To run only algorithms:
 
 To run the tests:
 
-> make test
+    make test
 
-## Problem Statement
+# Problem Statement
 
 [Source](https://www.spoj.com/problems/ANARC05B/)
 
-Two finite, strictly increasing, integer sequences are given. Any common integer between the two sequences constitute an intersection point. Take for example the following two sequences where intersection points are printed in bold:
+Two finite, strictly increasing, integer sequences are given. Any common integer
+between the two sequences constitute an intersection point. Take for example the
+following two sequences where intersection points are printed in bold:
 
-  - First= 3 5 **7** 9 20 **25** 30 40 **55** 56 **57** 60 62
-  - Second= 1 4 **7** 11 14 **25** 44 47 **55** **57** 100
+-   First= 3 5 **7** 9 20 **25** 30 40 **55** 56 **57** 60 62
+-   Second= 1 4 **7** 11 14 **25** 44 47 **55** **57** 100
 
 You can *walk* over these two sequences in the following way:
 
-You may start at the beginning of any of the two sequences. Now start moving forward. At each intersection point, you have the choice of either continuing with the same sequence you’re currently on, or switching to the other sequence.
+You may start at the beginning of any of the two sequences. Now start moving
+forward. At each intersection point, you have the choice of either continuing
+with the same sequence you're currently on, or switching to the other sequence.
 
-The objective is finding a path that produces the maximum sum of data you walked over. In the above example, the largest possible sum is 450, which is the result of adding 3, 5, 7, 9, 20, 25, 44, 47, 55, 56, 57, 60, and 62
+The objective is finding a path that produces the maximum sum of data you walked
+over. In the above example, the largest possible sum is 450, which is the result
+of adding 3, 5, 7, 9, 20, 25, 44, 47, 55, 56, 57, 60, and 62
 
-### Input
+## Input
 
-The program will be tested on a number of test cases. Each test case will be specified on two separate lines. Each line denotes a sequence and is specified using the following format:
+The program will be tested on a number of test cases. Each test case will be
+specified on two separate lines. Each line denotes a sequence and is specified
+using the following format: **n v~1~ v~2~ ... v~n~**
 
-> n v₁ v₂ … v<sub>n</sub>
+where n is the length of the sequence, v~i~ is the i^th^ element of the
+sequence.
 
-where n is the length of the sequence, v<sub>i</sub> is the i<sup>th</sup> element of the sequence.
-
-> **1 \<= n \<= 10000** and **-10000 \<= v<sub>i</sub> \<= 10000**
+**1 \<= n \<= 10000** and **-10000 \<= v~i~ \<= 10000**
 
 `0` indicates the end of input
 
-### Output
+## Output
 
-For each test case, write on a separate line, the largest possible sum that can be produced.
+For each test case, write on a separate line, the largest possible sum that can
+be produced.
 
-### Conditions
+## Conditions
 
 We can traverse the sequence in the following manner:
 
-  - We may start at the beginning of any of the two sequences.
-  - At each intersection point, we have the choice of either continuing with the same sequence, or switching to the other sequence.
+-   We may start at the beginning of any of the two sequences.
+-   At each intersection point, we have the choice of either continuing with the
+    same sequence, or switching to the other sequence.
 
-## SPOJ Submission Status
+# SPOJ Submission Status
 
 ![Simple Approach](Assets/Double%20Helix%20Simple.png)
 
 ![Greedy Approach](Assets/Double%20Helix%20Greedy.png)
 
-## Algorithm
+# Algorithm
 
-### Simple Approach
+## Simple Approach
 
-  - **Step 1**: Set sum1 & sum2 to be 0.
+-   **Step 1**: Set sum1 & sum2 to be 0.
 
-  - **Step 2**: Compare the values at the first index of both lists. Whichever is lesser, add its value to the appropriate sum variable and increment that list’s index. Repeat this step until both the values are equal.
+-   **Step 2**: Compare the values at the first index of both lists. Whichever
+    is lesser, add its value to the appropriate sum variable and increment that
+    list's index. Repeat this step until both the values are equal.
 
-  - **Step 3**: When they are equal, add the value to both sum variables. Then find the maximum among sum1 & sum2 and assign that value to both of them. Then increment the index of both the lists.
+-   **Step 3**: When they are equal, add the value to both sum variables. Then
+    find the maximum among sum1 & sum2 and assign that value to both of them.
+    Then increment the index of both the lists.
 
-  - **Step 4**: When the elements of either one of the list is exhausted, add the remaining values in the other list to its appropriate sum variable.
+-   **Step 4**: When the elements of either one of the list is exhausted, add
+    the remaining values in the other list to its appropriate sum variable.
 
-  - **Step 5**: Return the maximum of sum1 & sum2
+-   **Step 5**: Return the maximum of sum1 & sum2
 
-### Greedy Approach
+## Greedy Approach
 
-  - **Step 1**: We generate the *prefix sum lists* of the given two sequences.
+-   **Step 1**: We generate the *prefix sum lists* of the given two sequences.
 
-  - **Step 2**: We find the point of intersection of both lists. To do this we iterate through every element in a sequence and then perform a *binary search* for the intersection on the second sequence.
+-   **Step 2**: We find the point of intersection of both lists. To do this we
+    iterate through every element in a sequence and then perform a *binary
+    search* for the intersection on the second sequence.
 
-  - **Step 3**: On finding an intersection we find the difference between the prefix sum at the current intersection and prefix sum at previous intersection for the respective sequences and then greedily select the maximum among both and add it to a *result* variable.
+-   **Step 3**: On finding an intersection we find the difference between the
+    prefix sum at the current intersection and prefix sum at previous
+    intersection for the respective sequences and then greedily select the
+    maximum among both and add it to a *result* variable.
 
-  - **Step 4**: Since we have found the maximum till the final intersection, we now need to find the difference between the final element of prefix sum list and the final intersection for the respective sequences and then greedily select the maximum and add it to the *result* variable
+-   **Step 4**: Since we have found the maximum till the final intersection, we
+    now need to find the difference between the final element of prefix sum list
+    and the final intersection for the respective sequences and then greedily
+    select the maximum and add it to the *result* variable
 
-## Pseudocode
+# Pseudocode
 
-### Simple Approach
+## Simple Approach
 
 ``` python
 DoubleHelix(A,B,m,n)
@@ -141,7 +151,7 @@ DoubleHelix(A,B,m,n)
   return max(sum1, sum2)
 ```
 
-### Greedy Approach
+## Greedy Approach
 
 ``` python
 DoubleHelix(A,B,m,n)
@@ -170,47 +180,93 @@ DoubleHelix(A,B,m,n)
                  ,prefixB[-1]-prefixB[prevIndb])
 ```
 
-## Proof of Correctness
+# Proof of Correctness
 
-### Simple Approach
+## Simple Approach
 
-Let’s assume *m* be the length of list 1, *a*<sub>i</sub> be an element of list 1, *n* be the length of list 2, *b*<sub>i</sub> be an element of list 2.
+Let's assume *m* be the length of list 1, *a*~i~ be an element of list 1, *n* be
+the length of list 2, *b*~i~ be an element of list 2.
 
 We have to prove that by using the following algorithm we get the maximum sum.
 
-Since the elements in both the lists are ordered in strictly increasing order, we can predict where the elements from both the lists will attain equality i.e. intersection points.
+Since the elements in both the lists are ordered in strictly increasing order,
+we can predict where the elements from both the lists will attain equality
+i.e. intersection points.
 
-  - When *a*<sub>i</sub> \< *b*<sub>i</sub>: This implies that *a*<sub>i</sub> must increase to become equal to *b*<sub>i</sub>. Thus we add *a*<sub>i</sub> to sum1 because it is on the path to the next intersection point and traverse to the next element in the first list.
+-   When *a*~i~ \< *b*~i~: This implies that *a*~i~ must increase to become
+    equal to *b*~i~. Thus we add *a*~i~ to sum1 because it is on the path to the
+    next intersection point and traverse to the next element in the first list.
 
-  - When *a*<sub>i</sub> \> *b*<sub>i</sub>: This implies that *b*<sub>i</sub> must increase to become equal to *a*<sub>i</sub>. Thus we add *b*<sub>i</sub> to sum2 because it is on the path to the next intersection point and traverse to the next element in the second list.
+-   When *a*~i~ \> *b*~i~: This implies that *b*~i~ must increase to become
+    equal to *a*~i~. Thus we add *b*~i~ to sum2 because it is on the path to the
+    next intersection point and traverse to the next element in the second list.
 
-  - When *a*<sub>i</sub> = *b*<sub>i</sub>: It is an intersection point. Thus we need to compare and find the maximum of the sum variables in order to maximize the sum.
+-   When *a*~i~ = *b*~i~: It is an intersection point. Thus we need to compare
+    and find the maximum of the sum variables in order to maximize the sum.
 
-Hence, we have successfully proved that the path taken by this method gives the maximum sum.
+Hence, we have successfully proved that the path taken by this method gives the
+maximum sum.
 
-### Greedy Approach
+## Greedy Approach
 
-Let’s assume *m* be the size of list 1, *a*<sub>i</sub> be an element of sequence 1 and *pa*<sub>i</sub> be the difference between prefix sum at index *i* and prefix sum at previous point of intersection(which is initially 0), *n* be the length of list 2 , *b*<sub>i</sub> be an element of sequence 2 and *pb*<sub>i</sub> be the difference between prefix sum at index *i* and prefix sum at previous point of intersection(which is initially 0)
+Let's assume *m* be the size of list 1, *a*~i~ be an element of sequence 1 and
+*pa*~i~ be the difference between prefix sum at index *i* and prefix sum at
+previous point of intersection(which is initially 0), *n* be the length of list
+2 , *b*~i~ be an element of sequence 2 and *pb*~i~ be the difference between
+prefix sum at index *i* and prefix sum at previous point of intersection(which
+is initially 0)
 
-We have to prove that by using the following greedy algorithm we get the maximum sum.
+We have to prove that by using the following greedy algorithm we get the maximum
+sum.
 
-**Base Case:** We need to show that we get a maximum sum when we have two sequences of length 1.
+**Base Case:** We need to show that we get a maximum sum when we have two
+sequences of length 1.
 
-Since the length is 1, there can be two cases, either a₁ and b₁ same or they aren’t same. If a₁ and b₁ are same then the *binary search* determines that there is a point of intersection and then adds as max(a₁, b₁) which are the same at index 1 to the *result* variable. Then according to *step 4*, the difference generated will be 0 for both the sequences. Hence there won’t be any change in result. Therefore we get the maximum in this case. The second case when both are not equal, then we directly go to *step 4* and accordingly maximum is chosen from both the sequences from max(pa₁, pb₁) which is equivalent to max(a₁, b₁). Hence the given proposition is true for n = 1 as we get the maximum sum from this single node path.
+Since the length is 1, there can be two cases, either a~1~ and b~1~ same or they
+aren't same. If a~1~ and b~1~ are same then the *binary search* determines that
+there is a point of intersection and then adds as max(a~1~, b~1~) which are the
+same at index 1 to the *result* variable. Then according to *step 4*, the
+difference generated will be 0 for both the sequences. Hence there won't be any
+change in result. Therefore we get the maximum in this case. The second case
+when both are not equal, then we directly go to *step 4* and accordingly maximum
+is chosen from both the sequences from max(pa~1~, pb~1~) which is equivalent to
+max(a~1~, b~1~). Hence the given proposition is true for n = 1 as we get the
+maximum sum from this single node path.
 
-**Induction Step over i:** Assuming that our proposition holds true for sequences of length i, 1 respectively, we need to show that it is also true for i+1, 1.
+**Induction Step over i:** Assuming that our proposition holds true for
+sequences of length i, 1 respectively, we need to show that it is also true for
+i+1, 1.
 
-This means that till i there can be two cases, either intersection occurs or intersection doesn’t occur.
+This means that till i there can be two cases, either intersection occurs or
+intersection doesn't occur.
 
-  - Case 1: Intersection doesn’t occur till i
+-   Case 1: Intersection doesn't occur till i
 
-We know that we have maximum sum till the element at index i(assumption). Let this maximum sum(which is max(pa<sub>i</sub>, pb₁)) be m1. Now at index i+1 there might or might not be be an intersection. If element at i+1 and b₁ intersect then we can tell that we get a maximum sum m1 + max(a<sub>i+1</sub>, b₁), as they are identified by the binary search and then added to the result variable. Similar is the case when they don’t intersect. Then we directly go to step 4 where we find max(pa<sub>i+1</sub>, pb₁) which would obviously give us the maximum sum as the given sequence to us is strictly increasing.
+We know that we have maximum sum till the element at index i(assumption). Let
+this maximum sum(which is max(pa~i~, pb~1~)) be m1. Now at index i+1 there might
+or might not be be an intersection. If element at i+1 and b~1~ intersect then we
+can tell that we get a maximum sum m1
 
-  - Case 2: If intersection has occurred at i or before i.
+-   max(a~i+1~, b~1~), as they are identified by the binary search and then
+    added to the result variable. Similar is the case when they don't intersect.
+    Then we directly go to step 4 where we find max(pa~i+1~, pb~1~) which would
+    obviously give us the maximum sum as the given sequence to us is strictly
+    increasing.
 
-Since the given sequence is strictly increasing, and intersection has already occurred at index i, it means that intersection will never occur at index i+1. Which implies that the maximum would be the prefix sum at index i+1. We have to prove that our algorithm gives that value.
+-   Case 2: If intersection has occurred at i or before i.
 
-At intersection index k our algorithm chooses max(pa<sub>k</sub>, 1) in step 3. Hence, the answer generated will be pa<sub>k</sub>. Now after completing to step 4 we will have the result as Prefix Sum till i, since size of i \> 1 which obviously is the maximum. Similar is the case when an additional element is added. It will be added in step 4. Since Prefix Sum till i + a<sub>i+1</sub> is Prefix Sum till i+1. Hence the answer is Prefix Sum till i+1<sup>th</sup> element, which is greater than b₁ as intersection already occurred.
+Since the given sequence is strictly increasing, and intersection has already
+occurred at index i, it means that intersection will never occur at index i+1.
+Which implies that the maximum would be the prefix sum at index i+1. We have to
+prove that our algorithm gives that value.
+
+At intersection index k our algorithm chooses max(pa~k~, 1) in step 3. Hence,
+the answer generated will be pa~k~. Now after completing to step 4 we will have
+the result as Prefix Sum till i, since size of i \> 1 which obviously is the
+maximum. Similar is the case when an additional element is added. It will be
+added in step 4. Since Prefix Sum till i + a~i+1~ is Prefix Sum till i+1. Hence
+the answer is Prefix Sum till i+1^th^ element, which is greater than b~1~ as
+intersection already occurred.
 
 Basic logic behind reasoning in above case is a+b \> a, given b \> 0.
 
@@ -218,45 +274,55 @@ Hence proved.
 
 Without loss of generality, we can also prove for induction over j.
 
-Hence by induction, we have successfully proved that the path taken by this method gives the maximum sum.
+Hence by induction, we have successfully proved that the path taken by this
+method gives the maximum sum.
 
-## Complexity
+# Complexity
 
-### Simple Approach
+## Simple Approach
 
-  - **Time Complexity**: `O(m+n)` where `m` is the length of first sequence and `n` is the length of second sequence. This is because the worst case for this algorithm occurs when there are no intersection points and thus each element in both lists will be added to the sum variables once leading to the above time complexity.
-  - **Space Complexity**: `O(1)`
+-   **Time Complexity**: **O(m+n)** where `m` is the length of first sequence
+    and `n` is the length of second sequence. This is because the worst case for
+    this algorithm occurs when there are no intersection points and thus each
+    element in both lists will be added to the sum variables once leading to the
+    above time complexity.
+-   **Space Complexity**: **O(1)**
 
-### Greedy Approach
+## Greedy Approach
 
-  - **Time Complexity**: `O(m*log(n))` where `m` is the length of first sequence and `n` is the length of second sequence, as the worst case will occur when the binary search cannot find an intersection and, cost of each binary search is `O(logn)` which is iterated m times.
-  - **Space Complexity**: `O(1)`
+-   **Time Complexity**: **O(m\*log(n))** where `m` is the length of first
+    sequence and `n` is the length of second sequence, as the worst case will
+    occur when the binary search cannot find an intersection and, cost of each
+    binary search is **O(log n)** which is iterated m times.
+-   **Space Complexity**: **O(1)**
 
-## Data Structures
+# Data Structures
 
-We have used Python’s built-in lists & tuples only.
+We have used Python's built-in lists & tuples only.
 
-## Side Effects
+# Side Effects
 
 There are no side-effects during execution of this code.
 
-## Bibliography
+# Bibliography
 
-  - **Introduction to Algorithms** by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein
-  - [Multivariable Mathematical Induction](https://www.mathblog.dk/proof-method-multidimensional-induction/)
+-   **Introduction to Algorithms** by Thomas H. Cormen, Charles E. Leiserson,
+    Ronald L. Rivest, and Clifford Stein
+-   [Multivariable Mathematical
+    Induction](https://www.mathblog.dk/proof-method-multidimensional-induction/)
 
-## Contributions
+# Contributions
 
-### Khaveesh Nagappan IMT2018036
+## Khaveesh Nagappan IMT2018036
 
-  - anarc05b\_double\_helix.py
-  - test\_double\_helix.py
-  - README
-  - TestCases Format.txt
+-   anarc05b_double_helix.py
+-   test_double_helix.py
+-   README
+-   TestCases Format.txt
 
-### Sai Rithwik IMT2018061
+## Sai Rithwik IMT2018061
 
-  - anarc05b\_double\_helix\_greedy.py
-  - Makefile
-  - correct\_tests.txt
-  - wrong\_tests.txt
+-   anarc05b_double_helix_greedy.py
+-   Makefile
+-   correct_tests.txt
+-   wrong_tests.txt
