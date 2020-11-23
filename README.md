@@ -5,8 +5,8 @@ keywords:
 - SPOJ
 - ANARC05B
 subject: DAA
-title: 'ANARC05B - The Double HeLiX'
-title-meta: 'ANARC05B - The Double HeLiX'
+title: ANARC05B - The Double HeLiX
+title-meta: ANARC05B - The Double HeLiX
 titlepage: true
 titlepage-background: background2.pdf
 titlepage-rule-color: 39474E
@@ -28,7 +28,7 @@ To run both the algorithms and all the tests:
 
 To run only algorithms:
 
-> make run
+    make run
 
 To run the tests:
 
